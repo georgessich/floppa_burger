@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/floppa_burger/static/css/main.62491962.chunk.css",
+    "main.js": "/floppa_burger/static/js/main.76bdb992.chunk.js",
+    "main.js.map": "/floppa_burger/static/js/main.76bdb992.chunk.js.map",
+    "runtime-main.js": "/floppa_burger/static/js/runtime-main.3317c526.js",
+    "runtime-main.js.map": "/floppa_burger/static/js/runtime-main.3317c526.js.map",
+    "static/js/2.2e4f4fe9.chunk.js": "/floppa_burger/static/js/2.2e4f4fe9.chunk.js",
+    "static/js/2.2e4f4fe9.chunk.js.map": "/floppa_burger/static/js/2.2e4f4fe9.chunk.js.map",
+    "index.html": "/floppa_burger/index.html",
+    "static/css/main.62491962.chunk.css.map": "/floppa_burger/static/css/main.62491962.chunk.css.map",
+    "static/js/2.2e4f4fe9.chunk.js.LICENSE.txt": "/floppa_burger/static/js/2.2e4f4fe9.chunk.js.LICENSE.txt",
+    "static/media/header_logo.70db73c9.png": "/floppa_burger/static/media/header_logo.70db73c9.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3317c526.js",
+    "static/js/2.2e4f4fe9.chunk.js",
+    "static/css/main.62491962.chunk.css",
+    "static/js/main.76bdb992.chunk.js"
+  ]
+}
