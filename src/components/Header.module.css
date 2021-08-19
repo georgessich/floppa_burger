@@ -1,0 +1,26 @@
+.header {
+    background-color: rgb(224, 126, 87);
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__menu_list {
+    list-style: none;
+    display: flex;
+    gap: 12rem;
+    align-items: center;
+
+}
+
+.header__menu_link {
+    color: #ffffff;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.header__logo {
+    width: 150px;
+}
