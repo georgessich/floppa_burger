@@ -8,17 +8,17 @@ function Header() {
         <ul className={classes.header__menu_list}>
 
           <li>
-          <Link className={classes.header__menu_link} to='/'><img src={logo} className={classes.header__logo} alt='logo'/></Link>
+          <Link className={classes.header__menu_link} to='/floppa_burger'><img src={logo} className={classes.header__logo} alt='logo'/></Link>
           
           </li>
           <li>
-            <Link className={classes.header__menu_link} to='/delivery'>Доставка и оплата</Link>
+            <Link className={classes.header__menu_link} to='/floppa_burger/delivery'>Доставка и оплата</Link>
           </li>
           <li>
-            <Link className={classes.header__menu_link} to='/address'>Заведения</Link>
+            <Link className={classes.header__menu_link} to='/floppa_burger/address'>Заведения</Link>
           </li>
           <li>
-            <Link className={classes.header__menu_link} to='/promo'>Акции</Link>
+            <Link className={classes.header__menu_link} to='/floppa_burger/promo'>Акции</Link>
           </li>
         </ul>
       </nav>

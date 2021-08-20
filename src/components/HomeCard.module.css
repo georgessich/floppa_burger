@@ -36,4 +36,20 @@
 .homecard__btn {
     position: absolute;
     top: 80%;
+    border: none;
+    font-size: 18px;
+    background-color: rgb(131, 52, 20);
+    color:#fff;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all .4s;
+}
+
+.homecard__btn:hover {
+    transform: translateY(-2px);
+}
+
+.homecard__btn:active {
+    transform: translateY(2px);
 }

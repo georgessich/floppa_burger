@@ -1,10 +1,10 @@
-.header {
-    background-color: rgb(224, 126, 87);
+.header { background-color: rgb(224, 126, 87);
     margin: 0 auto;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+   
 }
 
 .header__menu_list {

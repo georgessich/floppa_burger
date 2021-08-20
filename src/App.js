@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './components/Home';
 import Delivery from './pages/Delivery';
-import Address from './pages/Address';
+import Address from './pages/Address/Address';
 import Promo from './pages/Promo';
 import Drinks from './pages/Menu/Drinks';
 import Fries from './pages/Menu/Fries';
@@ -14,25 +14,25 @@ function App() {
   return (
     <Layout>
       <Switch>
-        <Route path='/' exact>
-            <Home title='Hello, world'/>
+        <Route path='/floppa_burger' exact>
+            <Home/>
         </Route>
-        <Route path='/delivery'>
+        <Route path='/floppa_burger/delivery'>
           <Delivery />
         </Route>
-        <Route path='/address'>
+        <Route path='/floppa_burger/address'>
           <Address />
         </Route>
-        <Route path='/promo'>
+        <Route path='/floppa_burger/promo'>
           <Promo />
         </Route>
-        <Route path='/drinks'>
+        <Route path='/floppa_burger/drinks'>
           <Drinks />
         </Route>
-        <Route path='/fries'>
+        <Route path='/floppa_burger/fries'>
           <Fries />
         </Route>
-        <Route path='/sauces'>
+        <Route path='/floppa_burger/sauces'>
           <Sauces />
         </Route>
       </Switch>

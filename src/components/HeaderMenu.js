@@ -6,22 +6,22 @@ function HeaderMenu() {
       <nav>
         <ul className={classes.list}>
           <li>
-            <Link className={classes.link}  to="/">
+            <Link className={classes.link}  to="/floppa_burger/">
               Бургеры
             </Link>
           </li>
           <li>
-            <Link className={classes.link} to="/fries">
+            <Link className={classes.link} to="/floppa_burger/fries">
               Картофель
             </Link>
           </li>
           <li>
-            <Link className={classes.link} to="/sauces">
+            <Link className={classes.link} to="/floppa_burger/sauces">
               Соусы
             </Link>
           </li>
           <li>
-            <Link className={classes.link} to="/drinks">
+            <Link className={classes.link} to="/floppa_burger/drinks">
               Напитки
             </Link>
           </li>

@@ -1,36 +1,37 @@
-import classes from './Home.module.css';
-import HomeCards from './HomeCards';
-import LoadingSpinner from './LoadingSpinner';
+// import classes from './Home.module.css';
+import AddressCards from './AddressCards';
+import LoadingSpinner from '../../components/LoadingSpinner';
 import { useEffect, useState } from 'react';
 
-function Meals(props) {
-    const [ meals, setMeals ] = useState ([]);
+function Address(props) {
+    const [ address, setAddress ] = useState ([]);
     const [ isLoading, setIsLoading] = useState(true);
     const [ httpError, setHttpError ] = useState();
 
     useEffect(() => {
-        const fetchMeals = async () => {
-           const response = await fetch(`https://borger-app-334de-default-rtdb.firebaseio.com/meals/${props.mealsId}.json`);
+        const fetchAddress = async () => {
+           const response = await fetch(`https://borger-app-334de-default-rtdb.firebaseio.com/restaraunts.json`);
            if(!response.ok) {
                throw new Error('Something went wrong!');
            }
            const responseData = await response.json();
 
-           const loadedMeals = []
+           const loadedAddress = []
 
            for(const key in responseData) {
-               loadedMeals.push({
+               loadedAddress.push({
                    id: key,
                    title:responseData[key].title,
-                   img:responseData[key].img,
-                   price:responseData[key].price,
+                   link:responseData[key].link,
+                   hours:responseData[key].hours,
+                   address:responseData[key].address
                })
         }
-        setMeals(loadedMeals);
+        setAddress(loadedAddress);
         setIsLoading(false);
         }
         
-        fetchMeals().catch((error) => {
+        fetchAddress().catch((error) => {
             setIsLoading(false);
             setHttpError(error.message);
           });
@@ -48,9 +49,9 @@ function Meals(props) {
             <p>{httpError}</p>
         </section>
     }
-    return <div className={classes.home}>
-        <HomeCards  burgers={meals}/>
+    return <div >
+        <AddressCards  restaraunts={address}/>
     </div>
 }
 
-export default Meals;
+export default Address;

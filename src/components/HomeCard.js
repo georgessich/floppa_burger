@@ -5,7 +5,7 @@ function HomeCard(props) {
         <img className={classes.homecard__img} src={props.image} alt={props.title}/>
         <p className={classes.homecard__title}>{props.title}</p>
         <p className={classes.homecard__price}>{props.price}</p>
-        <button className={classes.homecard__btn}>Add to cart</button>
+        <button className={classes.homecard__btn}>В корзину</button>
     </div>
 }
 
