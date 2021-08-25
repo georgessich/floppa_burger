@@ -1,5 +1,6 @@
 import classes from './Header.module.css';
-import logo from './header_logo.png'
+import logo from './header_logo.png';
+import HeaderCartButton from './HeaderCartButton';
 import { Link } from 'react-router-dom';
 function Header() {
   return (
@@ -18,7 +19,7 @@ function Header() {
             <Link className={classes.header__menu_link} to='/floppa_burger/address'>Заведения</Link>
           </li>
           <li>
-            <Link className={classes.header__menu_link} to='/floppa_burger/promo'>Акции</Link>
+            <Link className={classes.header__menu_link} to='/floppa_burger/promo'><HeaderCartButton /></Link>
           </li>
         </ul>
       </nav>

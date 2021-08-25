@@ -1,5 +1,5 @@
-import Header from './Header';
-import HeaderMenu from './HeaderMenu';
+import Header from './Header/Header';
+import HeaderMenu from './Header/HeaderMenu';
 import Footer from './Footer';
 function Layout(props) {
     return (

@@ -1,0 +1,80 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.75);
+  }
+  
+  .modal {
+    position: fixed;
+    top: 30vh;
+    left:40%;
+    width: 20%;
+    z-index: 100;
+    overflow: hidden;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    border-radius: 10px;
+  }  
+
+.image {
+    width: 80%;
+    height: 40%;
+    margin-bottom: 15px;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.price {
+    margin-bottom: 15px;
+}
+
+.extras {
+    display: flex;
+    margin-bottom: 15px;
+}
+.extras label {
+    margin-right: 10px;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+}
+
+.cancel {
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(224, 159, 19, 0.4);
+    border-radius: 5px;
+}
+
+.cancel:hover {
+    background-color: rgba(224, 159, 19, 0.9);
+}
+
+.tocart {
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(101, 170, 11, 0.4);
+    border-radius: 5px;
+}
+
+.tocart:hover {
+    background-color: rgba(101, 170, 11, 0.9);
+}

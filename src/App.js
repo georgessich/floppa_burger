@@ -1,5 +1,4 @@
 import { Route, Switch } from 'react-router-dom';
-
 import Layout from './components/Layout';
 import Home from './components/Home';
 import Delivery from './pages/Delivery';
@@ -11,6 +10,7 @@ import Sauces from './pages/Menu/Sauces';
 import './App.css';
 
 function App() {
+  
   return (
     <Layout>
       <Switch>
