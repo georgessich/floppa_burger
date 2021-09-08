@@ -1,8 +1,8 @@
 import Meals from '../../components/Meals';
-function Drinks() {
+function Drinks(props) {
 
     return (
-        <Meals mealsId='drinks'/>
+        <Meals mealsId={props.mealsId}/>
     )
 }
 

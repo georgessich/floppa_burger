@@ -1,9 +1,9 @@
 
 import Meals from './Meals';
-function Home() {
+function Home(props) {
 
     return (
-        <Meals mealsId='burgers'/>
+        <Meals mealsId={props.mealsId}/>
         
     )
 }

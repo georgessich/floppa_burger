@@ -1,0 +1,12 @@
+.cartsubmit {
+    padding: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.message {
+    font-weight: 700;
+    font-size: 48px;
+}

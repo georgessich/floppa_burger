@@ -1,8 +1,8 @@
 import Meals from '../../components/Meals';
-function Fries() {
+function Fries(props) {
 
     return (
-        <Meals mealsId='fries'/>
+        <Meals mealsId={props.mealsId}/>
     )
 }
 

@@ -1,0 +1,9 @@
+ul {
+    list-style: none;
+}
+
+.cart {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}

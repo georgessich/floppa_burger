@@ -1,0 +1,45 @@
+.cartitem {
+    width: 50%;
+    border: 2px solid rgb(225, 0, 0);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 20px;
+}
+
+.cartitem__img {
+    width: 25%;
+    border-radius: 5px;
+
+}
+
+.cartitem__title {
+
+}
+
+.cartitem__price {
+
+}
+
+.cartitem__amount {
+
+}
+
+.cartitem__controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.cartitem__button {
+    cursor: pointer;
+    border: none;
+    padding: 5px;
+    font-size: 30px;
+    color: rgb(150, 66, 10);
+    background-color: transparent;
+
+}

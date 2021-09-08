@@ -3,19 +3,20 @@ import Layout from './components/Layout';
 import Home from './components/Home';
 import Delivery from './pages/Delivery';
 import Address from './pages/Address/Address';
-import Promo from './pages/Promo';
+import Cart from './pages/Cart/Cart';
 import Drinks from './pages/Menu/Drinks';
 import Fries from './pages/Menu/Fries';
 import Sauces from './pages/Menu/Sauces';
 import './App.css';
-
+import CartProvider from './pages/Cart/CartProvider';
 function App() {
   
   return (
+    <CartProvider>
     <Layout>
       <Switch>
         <Route path='/floppa_burger' exact>
-            <Home/>
+            <Home mealsId='burgers'/>
         </Route>
         <Route path='/floppa_burger/delivery'>
           <Delivery />
@@ -23,21 +24,21 @@ function App() {
         <Route path='/floppa_burger/address'>
           <Address />
         </Route>
-        <Route path='/floppa_burger/promo'>
-          <Promo />
+        <Route path='/floppa_burger/cart'>
+          <Cart />
         </Route>
         <Route path='/floppa_burger/drinks'>
-          <Drinks />
+          <Drinks mealsId='drinks'/>
         </Route>
         <Route path='/floppa_burger/fries'>
-          <Fries />
+          <Fries mealsId='fries'/>
         </Route>
         <Route path='/floppa_burger/sauces'>
-          <Sauces />
+          <Sauces mealsId='sauces'/>
         </Route>
       </Switch>
     </Layout>
-   
+    </CartProvider>
   );
 }
 

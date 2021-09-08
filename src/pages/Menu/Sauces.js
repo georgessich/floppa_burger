@@ -1,8 +1,8 @@
 import Meals from '../../components/Meals';
-function Sauces() {
+function Sauces(props) {
 
     return (
-        <Meals mealsId='sauces'/>
+        <Meals mealsId={props.mealsId}/>
     )
 }
 

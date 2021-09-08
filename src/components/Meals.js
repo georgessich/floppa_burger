@@ -29,7 +29,6 @@ function Meals(props) {
         setMeals(loadedMeals);
         setIsLoading(false);
         }
-        
         fetchMeals().catch((error) => {
             setIsLoading(false);
             setHttpError(error.message);
@@ -49,7 +48,7 @@ function Meals(props) {
         </section>
     }
     return <div className={classes.home}>
-        <HomeCards  burgers={meals}/>
+        <HomeCards mealsId={props.mealsId} burgers={meals}/>
     </div>
 }
 

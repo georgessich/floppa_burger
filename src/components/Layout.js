@@ -7,7 +7,7 @@ function Layout(props) {
             <Header />
             <HeaderMenu />
             <main>{props.children}</main>
-            <Footer />
+            <Footer/>
         </div>
     )
 }
