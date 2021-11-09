@@ -24,6 +24,7 @@ function Meals(props) {
                    title:responseData[key].title,
                    img:responseData[key].img,
                    price:responseData[key].price,
+                   descr:responseData[key].descr
                })
         }
         setMeals(loadedMeals);

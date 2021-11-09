@@ -14,8 +14,9 @@ function HomeCard(props) {
         <img className={classes.homecard__img} src={props.image} alt={props.title}/>
         <p className={classes.homecard__title}>{props.title}</p>
         <p className={classes.homecard__price}>{props.price}</p>
+        <p className={classes.homecard__descr}>{props.descr}</p>
         {modalShow && <Modal id={props.id} image={props.image} title={props.title} price={props.price} onClose={modalCloseHandler}/>}
-        <button className={classes.homecard__btn} onClick={modalShowHandler}>В корзину</button>
+        <button className={classes.homecard__btn} onClick={modalShowHandler}>Заказать</button>
     </div>
 }
 

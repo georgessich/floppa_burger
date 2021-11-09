@@ -1,8 +1,12 @@
 import Meals from '../../components/Meals';
+import classes from "./Title.module.css";
 function Sauces(props) {
 
     return (
-        <Meals mealsId={props.mealsId}/>
+        <div>
+        <span className={classes.title}>Соусы</span>
+        <Meals mealsId={props.mealsId} />
+      </div>
     )
 }
 

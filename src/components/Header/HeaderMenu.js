@@ -1,29 +1,30 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import classes from './HeaderMenu.module.css';
 function HeaderMenu() {
   return (
     <div>
-      <nav>
+      <nav style={{paddingLeft: '40px'}}>
         <ul className={classes.list}>
           <li>
-            <Link className={classes.link}  to="/floppa_burger/">
+            <NavLink className={classes.link} activeClassName={classes.linkActive} to="/floppa_burger/" exact
+            >
               Бургеры
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link className={classes.link} to="/floppa_burger/fries">
+            <NavLink className={classes.link} activeClassName={classes.linkActive} to="/floppa_burger/fries">
               Картофель
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link className={classes.link} to="/floppa_burger/sauces">
+            <NavLink className={classes.link} activeClassName={classes.linkActive} to="/floppa_burger/sauces">
               Соусы
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link className={classes.link} to="/floppa_burger/drinks">
+            <NavLink className={classes.link} activeClassName={classes.linkActive} to="/floppa_burger/drinks">
               Напитки
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </nav>

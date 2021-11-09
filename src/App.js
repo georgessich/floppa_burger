@@ -17,6 +17,9 @@ function App() {
       <Switch>
         <Route path='/floppa_burger' exact>
             <Home mealsId='burgers'/>
+            <Fries mealsId='fries'/>
+            <Sauces mealsId='sauces'/>
+            <Drinks mealsId='drinks'/>
         </Route>
         <Route path='/floppa_burger/delivery'>
           <Delivery />

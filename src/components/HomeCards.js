@@ -10,6 +10,7 @@ function HomeCards(props) {
           image={burger.img}
           title={burger.title}
           price={burger.price}
+          descr={burger.descr}
         />
       ))}
     </ul>
