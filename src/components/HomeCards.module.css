@@ -1,8 +1,8 @@
 .homecards {
     display: grid;
     grid-template-columns: repeat(4, max-content);
-    margin-top: 100px;
+    margin-top: 60px;
     align-items: center;
     gap: 110px;
-    margin-bottom: 150px;
+    margin-bottom: 155px;
 }
