@@ -1,22 +1,21 @@
-import classes from './Delivery.module.css'
-
-function Delivery(){
-    return (
-        <section className={classes.delivery}>
-            <h2>Доставка и оплата</h2>
-
-            <p>Приём заказов осуществляется с 10:00 до 23:00.
-            Время доставки заказа — от 30 минут.
-            </p>
-            <p>Вы можете оплатить заказ тремя способами:</p>
-            <ul>
-                <li>Оплата наличными при получении</li>
-                <li>Банковской картой при получении</li>
-                <li>Банковской картой онлайн
-                </li>
-            </ul>
-        </section>
-    )
+import classes from "./Delivery.module.css";
+import Map from '../images/map.png'
+function Delivery() {
+  return (
+    <section className={classes.delivery}>
+      <div>
+      <p className={classes.delivery__text}>
+        Приём заказов осуществляется с <span>10:00 до 23:00</span>. 
+      </p>
+      <p className={classes.delivery__text}>Время доставки заказа — до
+        <span> 60 минут</span>. Время готовности заказов для самовывоза — до <span>45 минут</span>. </p>
+      <p className={classes.delivery__text}>
+        Вы можете оплатить заказ банковской картой онлайн или при получении.
+      </p>
+      </div>
+      <img src={Map} />
+    </section>
+  );
 }
 
 export default Delivery;

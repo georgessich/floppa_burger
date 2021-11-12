@@ -10,6 +10,7 @@ const ModalOverlay = (props) => {
   const [roasts, setRoast] = useState([]);
   const [toppings, setToppings] = useState([]);
   const [sauces, setSauces] = useState([]);
+  const [supplements, setSupplements] = useState([])
   const [httpError, setHttpError] = useState();
   useEffect(() => {
     const fetchSettings = async () => {
@@ -66,6 +67,17 @@ const ModalOverlay = (props) => {
       img: props.image,
     });
   };
+  const addTopping = (topping) => {
+    if (supplements.length < 5) {
+      setSupplements(prevState => ([
+        ...prevState,
+        topping
+      ]))
+    }
+    if(supplements.length > 5) {
+      setSupplements(supplements)
+    }
+  }
   return (
     <div className={classes.modal}>
       <div className={classes.modal__left}>
@@ -92,12 +104,20 @@ const ModalOverlay = (props) => {
                 
               ))}</div>
             </form>
+            <div className={classes["modal__topping-btns"]}>
+                <span className={classes["modal__menu-titles"]}>Добавить ингредиенты {`${supplements.length}/5`}</span>
+                <div>
+                  {supplements.map((supplement) => (
+                    <button className={classes['modal__topping-btn']}>{supplement}</button>
+                  ))}
+                </div>
+              </div>
             <div className={classes['modal__topping-container']}>
               <div className={classes["modal__topping-btns"]}>
                 <span className={classes["modal__menu-titles"]}>Топпинги:</span>
                 <div>
                   {toppings.map((topping) => (
-                    <button className={classes['modal__topping-btn']}>{topping.title}</button>
+                    <button onClick={() => addTopping(topping.title)} className={classes['modal__topping-btn']}>{topping.title}</button>
                   ))}
                 </div>
               </div>
