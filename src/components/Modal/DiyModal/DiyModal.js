@@ -1,15 +1,15 @@
 import classes from "../Modal.module.css";
 import React, { useContext, useState, useEffect } from "react";
 import CartContext from "../../../pages/Cart/cart-context";
-import TablePic from "../../../images/table.png";
-import BunTop from '../../../images/toppings/bun top.png';
-import BunBottom from '../../../images/toppings/bun lower.png'
+import BunTop from "../../../images/toppings/bun top.png";
+import BunBottom from "../../../images/toppings/bun lower.png";
 const DiyModal = (props) => {
   const [buns, setBuns] = useState([]);
   const [roasts, setRoast] = useState([]);
   const [sauces, setSauces] = useState([]);
   const [brgrs, setBrgrs] = useState([]);
   const [toppings, setToppings] = useState([]);
+  const [layers, setLayers] = useState([]);
   const [httpError, setHttpError] = useState();
   useEffect(() => {
     const fetchDiySettings = async () => {
@@ -30,6 +30,7 @@ const DiyModal = (props) => {
           arr.push({
             id: key,
             title: data[key].title,
+            img: data[key].img,
           });
         }
       };
@@ -56,39 +57,67 @@ const DiyModal = (props) => {
       setHttpError(error.message);
     });
   }, []);
+
+  const addLayer = (topping) => {
+    if (layers.length < 9) {
+      setLayers((prevState) => [...prevState, topping]);
+    }
+    if (layers.length > 9) {
+      setLayers(layers);
+    }
+    console.log(layers);
+  };
   return (
-    <div className={classes.modal}>
+    <div className={classes.modal__diy}>
       <div className={classes.modal__left}>
         <span className={classes.modal__title}>{props.title}</span>
-
-        <div className={classes["modal__topping-container"]}>
-          <div className={classes["modal__topping-btns"]}>
-            <span className={classes["modal__menu-title"]}>Котлеты</span>
-            <div>
-              {brgrs.map((brgr) => (
-                <button className={classes["modal__topping-btn"]}>
-                  {brgr.title}
-                </button>
-              ))}
+        <div className={classes.modal__layers}>
+          {layers.map((layer, i) => (
+            <div className={classes.modal__layer}>
+              <div className={classes["modal__layer-title"]}>Слой №{i + 1}</div>
+              <span className={classes["modal__layer-btn"]}>{layer.title}</span>
             </div>
-          </div>
-          <div className={classes["modal__topping-btns"]}>
-            <span className={classes["modal__menu-title"]}>Топпинги</span>
-            <div>
-              {toppings.map((topping) => (
-                <button className={classes["modal__topping-btn"]}>
-                  {topping.title}
-                </button>
-              ))}
+          ))}
+          <div className={classes["modal__topping-container"]}>
+            <div className={classes["modal__topping-btns"]}>
+              <span className={classes["modal__menu-title"]}>Котлеты</span>
+              <div>
+                {brgrs.map((brgr) => (
+                  <button className={classes["modal__topping-btn"]}>
+                    {brgr.title}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className={classes["modal__topping-btns"]}>
+              <span className={classes["modal__menu-title"]}>Топпинги</span>
+              <div>
+                {toppings.map((topping) => (
+                  <button
+                    className={classes["modal__topping-btn"]}
+                    onClick={() => addLayer(topping)}
+                  >
+                    {topping.title}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div className={classes.modal__right}>
-        <div className={classes['modal__diy-table']}>
-          {/* <img src={TablePic} className={classes["modal__diy-img"]} /> */}
-          <img src={BunTop} className={classes['modal__diy-img--buntop']}/>
-          <img src={BunBottom} className={classes['modal__diy-img--bunbottom']}/>
+        <div className={classes["modal__diy-table"]}>
+          <img src={BunTop} className={classes["modal__diy-img--buntop"]} />
+          <div className={classes['modal__diy-img--toppings']}>
+            {layers.map((layer) => (
+              <img src={layer.img} />
+            ))}
+          </div>
+
+          <img
+            src={BunBottom}
+            className={classes["modal__diy-img--bunbottom"]}
+          />
         </div>
 
         <form>
