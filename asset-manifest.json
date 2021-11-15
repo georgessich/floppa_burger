@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/floppa_burger/static/css/main.98f2cc7b.chunk.css",
-    "main.js": "/floppa_burger/static/js/main.f716c5a8.chunk.js",
-    "main.js.map": "/floppa_burger/static/js/main.f716c5a8.chunk.js.map",
+    "main.css": "/floppa_burger/static/css/main.37424dd0.chunk.css",
+    "main.js": "/floppa_burger/static/js/main.b149e945.chunk.js",
+    "main.js.map": "/floppa_burger/static/js/main.b149e945.chunk.js.map",
     "runtime-main.js": "/floppa_burger/static/js/runtime-main.3317c526.js",
     "runtime-main.js.map": "/floppa_burger/static/js/runtime-main.3317c526.js.map",
-    "static/js/2.3c844c58.chunk.js": "/floppa_burger/static/js/2.3c844c58.chunk.js",
-    "static/js/2.3c844c58.chunk.js.map": "/floppa_burger/static/js/2.3c844c58.chunk.js.map",
+    "static/js/2.bea4c4c4.chunk.js": "/floppa_burger/static/js/2.bea4c4c4.chunk.js",
+    "static/js/2.bea4c4c4.chunk.js.map": "/floppa_burger/static/js/2.bea4c4c4.chunk.js.map",
     "index.html": "/floppa_burger/index.html",
-    "static/css/main.98f2cc7b.chunk.css.map": "/floppa_burger/static/css/main.98f2cc7b.chunk.css.map",
-    "static/js/2.3c844c58.chunk.js.LICENSE.txt": "/floppa_burger/static/js/2.3c844c58.chunk.js.LICENSE.txt",
+    "static/css/main.37424dd0.chunk.css.map": "/floppa_burger/static/css/main.37424dd0.chunk.css.map",
+    "static/js/2.bea4c4c4.chunk.js.LICENSE.txt": "/floppa_burger/static/js/2.bea4c4c4.chunk.js.LICENSE.txt",
     "static/media/bun lower.4016b08e.png": "/floppa_burger/static/media/bun lower.4016b08e.png",
     "static/media/bun top.11772c62.png": "/floppa_burger/static/media/bun top.11772c62.png",
     "static/media/facebook2.3abd99b5.svg": "/floppa_burger/static/media/facebook2.3abd99b5.svg",
@@ -21,8 +21,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.3317c526.js",
-    "static/js/2.3c844c58.chunk.js",
-    "static/css/main.98f2cc7b.chunk.css",
-    "static/js/main.f716c5a8.chunk.js"
+    "static/js/2.bea4c4c4.chunk.js",
+    "static/css/main.37424dd0.chunk.css",
+    "static/js/main.b149e945.chunk.js"
   ]
 }
