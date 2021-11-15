@@ -36,6 +36,8 @@ const Cart = () => {
               price={item.price}
               img={item.img}
               amount={item.amount}
+              supplements={item.supplements}
+              roast={item.roast}
               onRemove={cartItemRemoveHandler.bind(null, item.id)}
               onAdd={cartItemAddHandler.bind(null, item)}
               />

@@ -59,6 +59,11 @@
     align-self: center;
 }
 
+.homecard__btn-diy {
+    background-color: #f96f3c;
+    color: #fff;
+}
+
 .homecard__btn:hover {
     transform: translateY(-2px);
 }

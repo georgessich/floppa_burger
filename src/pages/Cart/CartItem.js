@@ -9,7 +9,10 @@ const CartItem = (props) => {
         <img className={classes.cartitem__img} src={props.img} alt={props.title}/>
         <h3>{props.title}</h3>
         <span>{price}</span>
-        
+        {props.supplements.map((supplement) => (
+          <span>{supplement}</span>
+        ))}
+        <span>{props.roast}</span>
       </div>
       <div className={classes.cartitem__controls}>
         <button className={classes.cartitem__button} onClick={props.onRemove}>-</button>
