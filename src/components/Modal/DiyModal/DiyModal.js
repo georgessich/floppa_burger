@@ -3,6 +3,7 @@ import React, { useContext, useState, useEffect } from "react";
 import CartContext from "../../../pages/Cart/cart-context";
 import BunTop from "../../../images/toppings/bun top.png";
 import BunBottom from "../../../images/toppings/bun lower.png";
+import Patty from '../../../images/toppings/patty.png';
 const DiyModal = (props) => {
   const [buns, setBuns] = useState([]);
   const [roasts, setRoast] = useState([]);
@@ -11,6 +12,11 @@ const DiyModal = (props) => {
   const [toppings, setToppings] = useState([]);
   const [layers, setLayers] = useState([]);
   const [httpError, setHttpError] = useState();
+  const [choosePatty, setChoosePatty] = useState();
+  const [chooseBun, setChooseBun] = useState();
+  const [chooseRoast, setChooseRoast] = useState();
+  const [chooseSauce, setChooseSauce] = useState([]);
+
   useEffect(() => {
     const fetchDiySettings = async () => {
       const response = await fetch(
@@ -57,6 +63,26 @@ const DiyModal = (props) => {
       setHttpError(error.message);
     });
   }, []);
+  const cartCtx = useContext(CartContext);
+
+  let enteredAmount = 0;
+
+  const addToCartHandler = (amount) => {
+    amount = ++enteredAmount;
+    cartCtx.addItem({
+      id: props.id,
+      title: props.title,
+      amount: amount,
+      price: props.price,
+      img: props.image,
+      bun: chooseBun,
+      patty: choosePatty, 
+      roast: chooseRoast,
+      supplements: layers,
+
+    });
+    console.log(cartCtx);
+  };
 
   const addLayer = (topping) => {
     if (layers.length < 9) {
@@ -67,6 +93,9 @@ const DiyModal = (props) => {
     }
     console.log(layers);
   };
+  const deleteLayer = (index) => {
+    setLayers(prevState => prevState.filter((layer, i) => i !== index))
+  }
   return (
     <div className={classes.modal__diy}>
       <div className={classes.modal__left}>
@@ -75,7 +104,8 @@ const DiyModal = (props) => {
           {layers.map((layer, i) => (
             <div className={classes.modal__layer}>
               <div className={classes["modal__layer-title"]}>Слой №{i + 1}</div>
-              <span className={classes["modal__layer-btn"]}>{layer.title}</span>
+              <span className={classes["modal__layer-egg"]}>{layer.title}</span>
+              <button className={classes['modal__layer-btn']} onClick={() => deleteLayer(i)}>&#10006;</button>
             </div>
           ))}
           <div className={classes["modal__topping-container"]}>
@@ -83,7 +113,7 @@ const DiyModal = (props) => {
               <span className={classes["modal__menu-title"]}>Котлеты</span>
               <div>
                 {brgrs.map((brgr) => (
-                  <button className={classes["modal__topping-btn"]}>
+                  <button onClick={() => setChoosePatty(brgr.title)} className={classes["modal__topping-btn"]}>
                     {brgr.title}
                   </button>
                 ))}
@@ -113,7 +143,7 @@ const DiyModal = (props) => {
               <img src={layer.img} />
             ))}
           </div>
-
+          <img src={Patty} className={classes['modal__diy-img--patty']}/>
           <img
             src={BunBottom}
             className={classes["modal__diy-img--bunbottom"]}
@@ -131,6 +161,7 @@ const DiyModal = (props) => {
                     id={`radio-bn${i}`}
                     type="radio"
                     name="bun"
+                    onClick={() => setChooseBun(bun.title)}
                   />
                   <label htmlFor={`radio-bn${i}`}>{bun.title}</label>
                 </div>
@@ -149,6 +180,7 @@ const DiyModal = (props) => {
                     id={`radio-rst${i}`}
                     type="radio"
                     name="roast"
+                    onClick={() => {setChooseRoast(roast.title)}}
                   />
                   <label htmlFor={`radio-rst${i}`}>{roast.title}</label>
                 </div>
@@ -165,6 +197,7 @@ const DiyModal = (props) => {
                     id={`radio-sau${i}`}
                     type="checkbox"
                     name="sauce"
+                    onClick={() => setChooseSauce(sauce.title)}
                   />
                   <label htmlFor={`radio-sauce${i}`}>{sauce.title}</label>
                 </div>
@@ -172,6 +205,19 @@ const DiyModal = (props) => {
             </div>
           </div>
         </form>
+      </div>
+      <div className={classes.controls}>
+        <button className={classes.cancel} onClick={props.onClose}>
+          &#10006;
+        </button>
+        <button
+          className={classes.tocart}
+          id={props.id}
+          onClick={addToCartHandler}
+         
+        >
+          В корзину!
+        </button>
       </div>
     </div>
   );

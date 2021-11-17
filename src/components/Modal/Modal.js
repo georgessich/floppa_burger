@@ -3,9 +3,7 @@ import ReactDOM from "react-dom";
 import classes from "./Modal.module.css";
 import CartContext from "../../pages/Cart/cart-context";
 import DiyModal from "./DiyModal/DiyModal";
-const Backdrop = (props) => {
-  return <div className={classes.backdrop} onClick={props.onClick} />;
-};
+import Backdrop from "./Backdrop";
 
 const ModalOverlay = (props) => {
   const [roasts, setRoast] = useState([]);
@@ -153,6 +151,7 @@ const ModalOverlay = (props) => {
           className={classes.tocart}
           id={props.id}
           onClick={addToCartHandler}
+
         >
           В корзину!
         </button>

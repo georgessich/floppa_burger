@@ -8,6 +8,7 @@
   background: rgba(0, 0, 0, 0.75);
 }
 
+
 .modal {
   position: fixed;
   top: 15%;
@@ -119,13 +120,14 @@
   background-position: center bottom;
   background-repeat: no-repeat;
   width: 480px;
-  height: 464px;
+  height: 508px;
   border-radius: 12px;
 }
 .modal__diy-img--buntop {
   position: absolute;
   width: 50%;
   left: 25%;
+  height: 56px;
 }
 .modal__diy-img--bunbottom {
   position: absolute;
@@ -133,10 +135,16 @@
   left: 25%;
   bottom: 0%;
 }
+.modal__diy-img--patty {
+  position: absolute;
+  width: 50%;
+  left: 25%;
+  bottom: 7%;
+}
 .modal__diy-img--toppings {
     position: absolute;
     display: flex;
-    top: 10%;
+    top: 5%;
     width: 50%;
     flex-direction: column;
     left: 25%;
@@ -178,11 +186,20 @@
   margin-right: 32px;
 }
 
-.modal__layer-btn {
+.modal__layer-egg {
   font-size: 14px;
   padding: 3px 6px;
   border: 1px solid #000;
   border-radius: 16px;
+}
+
+.modal__layer-btn {
+  background-color: transparent;
+  border: none;
+  font-weight: 700;
+  font-size: 14px;
+  padding-left: 10px;
+  cursor: pointer;
 }
 
 .cancel {

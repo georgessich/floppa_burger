@@ -23,3 +23,10 @@
     color: rgba(139, 40, 0, 1);
 }
 
+.header__menu-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 15%;
+}

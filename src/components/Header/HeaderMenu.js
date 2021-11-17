@@ -1,6 +1,17 @@
+import {useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import classes from './HeaderMenu.module.css';
+import Basket from '../../images/basket.png';
+import HeaderMenuModal from './HeaderMenuModal/HeaderMenuModal';
 function HeaderMenu() {
+  const [modalShow, setModalShow] = useState(false);
+
+  function modalShowHandler() {
+    setModalShow(true);
+  }
+  function modalCloseHandler() {
+    setModalShow(false);
+  }
   return (
     <div>
       <nav style={{paddingLeft: '40px'}}>
@@ -26,8 +37,12 @@ function HeaderMenu() {
               Напитки
             </NavLink>
           </li>
+          <button onClick={modalShowHandler} className={classes['header__menu-btn']}><img src={Basket}/></button>
+          {modalShow && <HeaderMenuModal onClose={modalCloseHandler}/>}
         </ul>
+        
       </nav>
+      
     </div>
   );
 }

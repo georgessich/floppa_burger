@@ -9,7 +9,7 @@ const CartItem = (props) => {
         <img className={classes.cartitem__img} src={props.img} alt={props.title}/>
         <h3>{props.title}</h3>
         <span>{price}</span>
-        {props.supplements.map((supplement) => (
+        {props.supplements > 0 && props.supplements.map((supplement) => (
           <span>{supplement}</span>
         ))}
         <span>{props.roast}</span>
