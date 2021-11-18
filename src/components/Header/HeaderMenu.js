@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import classes from './HeaderMenu.module.css';
 import Basket from '../../images/basket.png';
 import HeaderMenuModal from './HeaderMenuModal/HeaderMenuModal';
@@ -12,7 +12,9 @@ function HeaderMenu() {
   function modalCloseHandler() {
     setModalShow(false);
   }
+  const {pathname} = useLocation()
   return (
+    pathname !== '/floppa_burger/cart' &&
     <div>
       <nav style={{paddingLeft: '40px'}}>
         <ul className={classes.list}>

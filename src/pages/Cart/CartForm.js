@@ -64,52 +64,164 @@ const CartForm = (props) => {
     });
   };
 
-  const nameClasses = `${classes.inputs} ${
-      formInputsValidaty.name ? '' : classes.invalid
-  }`;
-  const phoneClasses = `${classes.inputs} ${
-    formInputsValidaty.phone ? '' : classes.invalid
-}`;
-const streetClasses = `${classes.inputs} ${
-    formInputsValidaty.street ? '' : classes.invalid
-}`;
-const housenumClasses = `${classes.inputs} ${
-    formInputsValidaty.housenum ? '' : classes.invalid
-}`;
+  //   const nameClasses = `${classes.inputs} ${
+  //       formInputsValidaty.name ? classes['cartform__name'] : classes.invalid
+  //   }`;
+  //   const phoneClasses = `${classes.inputs} ${
+  //     formInputsValidaty.phone ? classes['cartform__phone'] : classes.invalid
+  // }`;
+  // const streetClasses = `${classes.inputs} ${
+  //     formInputsValidaty.street ? classes['cartform__street'] : classes.invalid
+  // }`;
+  // const housenumClasses = `${classes.inputs} ${
+  //     formInputsValidaty.housenum ? classes['cartform__housenum'] : classes.invalid
+  // }`;
 
   return (
     <form className={classes.cartform} onSubmit={submitHandler}>
-      <h3>Оформление заказа</h3>
-      <div className={nameClasses}>
-        <label htmlFor="name">Имя</label>
-        <input type="text" id="name" ref={nameInputRef}/>
-        {!formInputsValidaty.name && <p className={classes.errormessage}>Пожалуйста, введите ваше имя</p>}
-      </div>
-      <div className={phoneClasses}>
-        <label htmlFor="phone">Номер телефона</label>
-        <input type="tel" id="phone" ref={phoneInputRef}/>
-        {!formInputsValidaty.phone && <p className={classes.errormessage}>Пожалуйста, введите корректный номер телефона</p>}
-      </div>
-      <div className={streetClasses}>
-        <label htmlFor="street">Улица</label>
-        <input type="text" id="street" ref={streetInputRef}/>
-        {!formInputsValidaty.street && <p className={classes.errormessage}>Пожалуйста, введите название улицы</p>}
-      </div>
-      <div className={housenumClasses}>
-        <label htmlFor="housenum">Дом</label>
-        <input type="text" id="housenum" ref={housenumInputRef}/>
-        {!formInputsValidaty.housenum && <p className={classes.errormessage}>Пожалуйста, введите номер дома</p>}
-      </div>
-      <div className={classes.inputs}>
-        <label htmlFor="housing">Корпус</label>
-        <input type="text" id="housing" ref={housingInputRef}/>
-      </div>
-      <div className={classes.inputs}>
-        <label htmlFor="appartment">Квартира</label>
-        <input type="text" id="appartment" ref={appartmentInputRef}/>
-      </div>
+      <label className={classes["cartform__name-label"]} htmlFor="name">
+        Имя
+      </label>
+      <input
+        className={classes["cartform__name-input"]}
+        type="text"
+        id="name"
+        ref={nameInputRef}
+      />
+      {!formInputsValidaty.name && (
+        <p className={classes.errormessage}>Пожалуйста, введите ваше имя</p>
+      )}
 
-      <button>Оформить заказ</button>
+      <label className={classes["cartform__phone-label"]} htmlFor="phone">
+        Номер телефона
+      </label>
+      <input
+        className={classes["cartform__phone-input"]}
+        type="tel"
+        id="phone"
+        ref={phoneInputRef}
+      />
+      {!formInputsValidaty.phone && (
+        <p className={classes.errormessage}>
+          Пожалуйста, введите корректный номер телефона
+        </p>
+      )}
+
+      <div className={classes["cartform__del"]}>
+        <span>Доставка:</span>
+        <input type="radio" id="del" name="del" checked />
+        <label htmlFor="del">Курьер</label>
+        <input type="radio" id="del" name="del" />
+        <label htmlFor="del">Самовывоз</label>
+      </div>
+      <label className={classes["cartform__street-label"]} htmlFor="street">
+        Улица
+      </label>
+      <input
+        className={classes["cartform__street-input"]}
+        type="text"
+        id="street"
+        ref={streetInputRef}
+      />
+      {!formInputsValidaty.street && (
+        <p className={classes.errormessage}>
+          Пожалуйста, введите название улицы
+        </p>
+      )}
+
+      <label className={classes["cartform__housenum-label"]} htmlFor="housenum">
+        Дом
+      </label>
+      <input
+        className={classes["cartform__housenum-input"]}
+        type="text"
+        id="housenum"
+        ref={housenumInputRef}
+      />
+      {!formInputsValidaty.housenum && (
+        <p className={classes.errormessage}>Пожалуйста, введите номер дома</p>
+      )}
+
+      <label className={classes["cartform__housing-label"]} htmlFor="housing">
+        Подъезд
+      </label>
+      <input
+        className={classes["cartform__housing-input"]}
+        type="text"
+        id="housing"
+        ref={housingInputRef}
+      />
+
+      <label
+        className={classes["cartform__appartment-label"]}
+        htmlFor="appartment"
+      >
+        Квартира
+      </label>
+      <input
+        className={classes["cartform__appartment-input"]}
+        type="text"
+        id="appartment"
+        ref={appartmentInputRef}
+      />
+
+      <label className={classes["cartform__floor-label"]} htmlFor="floor">
+        Этаж
+      </label>
+      <input
+        className={classes["cartform__floor-input"]}
+        type="text"
+        id="floor"
+        ref={appartmentInputRef}
+      />
+
+      <label className={classes["cartform__comment-label"]}>Комментарий</label>
+      <textarea className={classes["cartform__comment-textarea"]} rows="5" />
+      <div className={classes["cartform__pay"]}>
+        <span>Оплата:</span>
+        <input type="radio" id="pay" name="pay" checked />
+        <label htmlFor="pay">Онлайн</label>
+        <input type="radio" id="pay" name="pay" />
+        <label htmlFor="pay">Курьер</label>
+      </div>
+      <label className={classes["cartfrom__cardnum-label"]} htmlFor="cardnum">
+        Номер карты
+      </label>
+      <input
+        className={classes["cartfrom__cardnum-input"]}
+        type="text"
+        id="cardnum"
+        name="cardnum"
+      />
+      <label className={classes["cartfrom__cardname-label"]} htmlFor="cardname">
+        Имя держателя
+      </label>
+      <input
+        className={classes["cartfrom__cardname-input"]}
+        type="text"
+        id="cardname"
+        name="cardname"
+      />
+
+      <label className={classes["cartfrom__expire-label"]} htmlFor="expire">
+        Срок действия
+      </label>
+      <input
+        className={classes["cartfrom__expire-input"]}
+        type="text"
+        id="expire"
+        name="expire"
+      />
+      <label className={classes["cartfrom__cvv-label"]} htmlFor="cvv">
+        CVV
+      </label>
+      <input
+        className={classes["cartfrom__cvv-input"]}
+        type="text"
+        id="cvv"
+        name="cvv"
+      />
+      <button className={classes["cartform__btn"]}>Оплатить</button>
     </form>
   );
 };

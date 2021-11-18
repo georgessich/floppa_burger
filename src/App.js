@@ -7,6 +7,7 @@ import Cart from './pages/Cart/Cart';
 import Drinks from './pages/Menu/Drinks';
 import Fries from './pages/Menu/Fries';
 import Sauces from './pages/Menu/Sauces';
+import About from './pages/About/About';
 import './App.css';
 import CartProvider from './pages/Cart/CartProvider';
 function App() {
@@ -27,8 +28,12 @@ function App() {
         <Route path='/floppa_burger/address'>
           <Address />
         </Route>
+        
         <Route path='/floppa_burger/cart'>
           <Cart />
+        </Route>
+        <Route>
+          <About path='/floppa_burger/about'/>
         </Route>
         <Route path='/floppa_burger/drinks'>
           <Drinks mealsId='drinks'/>

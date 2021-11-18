@@ -27,9 +27,13 @@ const Cart = () => {
     setDidSubmit(true);
     cartCtx.clearCart();
   }
-
+  let sums = cartCtx.items.map(
+    (item) => parseInt(item.price.slice(" ").toString()) * item.amount
+  );
+  let totalSum = sums.reduce((acc, num) => acc + num, 0);
   const cartItems = (
-      <ul>
+    <div>
+      <ul  className={classes['cart__items']} style={{paddingRight:'0'}}>
           {cartCtx.items.map((item) => (
               <CartItem key={item.id} 
               title={item.title}
@@ -42,12 +46,19 @@ const Cart = () => {
               onAdd={cartItemAddHandler.bind(null, item)}
               />
           ))}
+          <div className={classes['cart__totalsum']}><span>К оплате</span> {totalSum}руб</div>
       </ul>
+     
+      </div>
   )
   return <div className={classes.cart}>
-      {cartItems}
+      <div className={classes['cart__header']}>
+        <span className={classes['cart__header-title--form']}>Оформление заказа</span>
+        <span className={classes['cart__header-title--compose']}>Состав заказа:</span>
+      </div>
       {cartCtx.items.length === 0 && !didSubmit && <CartEmpty />}
       {cartCtx.items.length > 0 && !didSubmit && <CartForm onConfirm={submitOrderHandler}/>}
+      {cartItems}
       {didSubmit && <CartSubmit />}
   </div>;
 };
