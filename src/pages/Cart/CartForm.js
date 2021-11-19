@@ -1,24 +1,21 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import classes from "./CartForm.module.css";
-const emptyValue = (value) => value.trim() === "";
-const phoneValue = (value) => value.trim().length === 11;
+
 
 const CartForm = (props) => {
-  const [formInputsValidaty, setFormInputsValidaty] = useState({
-    name: true,
-    phone: true,
-    street: true,
-    housenum: true,
-    housing: true,
-    appartment: true,
-  });
+ 
   const nameInputRef = useRef();
   const phoneInputRef = useRef();
   const streetInputRef = useRef();
   const housenumInputRef = useRef();
   const housingInputRef = useRef();
   const appartmentInputRef = useRef();
-
+  const floorInputRef = useRef();
+  const commentInputRef = useRef();
+  const cardnumInputRef = useRef();
+  const cardnameInputRef = useRef();
+  const expireInputRef = useRef();
+  const cvvInputRef = useRef();
   const submitHandler = (event) => {
     event.preventDefault();
     const enteredName = nameInputRef.current.value;
@@ -27,32 +24,12 @@ const CartForm = (props) => {
     const enteredHousenum = housenumInputRef.current.value;
     const enteredHousing = housingInputRef.current.value;
     const enteredAppartment = appartmentInputRef.current.value;
-
-    const enteredNameIsValid = !emptyValue(enteredName);
-    const enteredPhoneIsValid = !phoneValue(enteredPhone);
-    const enteredStreetIsValid = !emptyValue(enteredStreet);
-    const enteredHousenumIsValid = !emptyValue(enteredHousenum);
-    const enteredHousingIsValid = !emptyValue(enteredHousing);
-    const enteredAppartmentIsValid = !emptyValue(enteredAppartment);
-
-    setFormInputsValidaty({
-      name: enteredNameIsValid,
-      phone: enteredPhoneIsValid,
-      street: enteredStreetIsValid,
-      housenum: enteredHousenumIsValid,
-      housing: enteredHousingIsValid,
-      appartment: enteredAppartmentIsValid,
-    });
-
-    const formIsValid =
-      enteredNameIsValid &&
-      enteredPhoneIsValid &&
-      enteredStreetIsValid &&
-      enteredHousenumIsValid;
-
-    if (!formIsValid) {
-      return;
-    }
+    const enteredFloor = floorInputRef.current.value;
+    const enteredComment = commentInputRef.current.value;
+    const enteredCardname = cardnameInputRef.current.value;
+    const enteredCardnum = cardnumInputRef.current.value;
+    const enteredExpire = expireInputRef.current.value;
+    const enteredCvv = cvvInputRef.current.value;
 
     props.onConfirm({
       name: enteredName,
@@ -61,21 +38,14 @@ const CartForm = (props) => {
       housenum: enteredHousenum,
       housing: enteredHousing,
       appartment: enteredAppartment,
+      floor: enteredFloor,
+      comment: enteredComment,
+      cardname: enteredCardname,
+      cardnum: enteredCardnum,
+      expire: enteredExpire,
+      cvv: enteredCvv
     });
   };
-
-  //   const nameClasses = `${classes.inputs} ${
-  //       formInputsValidaty.name ? classes['cartform__name'] : classes.invalid
-  //   }`;
-  //   const phoneClasses = `${classes.inputs} ${
-  //     formInputsValidaty.phone ? classes['cartform__phone'] : classes.invalid
-  // }`;
-  // const streetClasses = `${classes.inputs} ${
-  //     formInputsValidaty.street ? classes['cartform__street'] : classes.invalid
-  // }`;
-  // const housenumClasses = `${classes.inputs} ${
-  //     formInputsValidaty.housenum ? classes['cartform__housenum'] : classes.invalid
-  // }`;
 
   return (
     <form className={classes.cartform} onSubmit={submitHandler}>
@@ -87,11 +57,9 @@ const CartForm = (props) => {
         type="text"
         id="name"
         ref={nameInputRef}
+        required
       />
-      {!formInputsValidaty.name && (
-        <p className={classes.errormessage}>Пожалуйста, введите ваше имя</p>
-      )}
-
+  
       <label className={classes["cartform__phone-label"]} htmlFor="phone">
         Номер телефона
       </label>
@@ -100,12 +68,9 @@ const CartForm = (props) => {
         type="tel"
         id="phone"
         ref={phoneInputRef}
+        required
       />
-      {!formInputsValidaty.phone && (
-        <p className={classes.errormessage}>
-          Пожалуйста, введите корректный номер телефона
-        </p>
-      )}
+
 
       <div className={classes["cartform__del"]}>
         <span>Доставка:</span>
@@ -122,12 +87,9 @@ const CartForm = (props) => {
         type="text"
         id="street"
         ref={streetInputRef}
+        required
       />
-      {!formInputsValidaty.street && (
-        <p className={classes.errormessage}>
-          Пожалуйста, введите название улицы
-        </p>
-      )}
+    
 
       <label className={classes["cartform__housenum-label"]} htmlFor="housenum">
         Дом
@@ -137,11 +99,9 @@ const CartForm = (props) => {
         type="text"
         id="housenum"
         ref={housenumInputRef}
+        required
       />
-      {!formInputsValidaty.housenum && (
-        <p className={classes.errormessage}>Пожалуйста, введите номер дома</p>
-      )}
-
+    
       <label className={classes["cartform__housing-label"]} htmlFor="housing">
         Подъезд
       </label>
@@ -172,11 +132,11 @@ const CartForm = (props) => {
         className={classes["cartform__floor-input"]}
         type="text"
         id="floor"
-        ref={appartmentInputRef}
+        ref={floorInputRef}
       />
 
       <label className={classes["cartform__comment-label"]}>Комментарий</label>
-      <textarea className={classes["cartform__comment-textarea"]} rows="5" />
+      <textarea ref={commentInputRef} className={classes["cartform__comment-textarea"]} rows="5" />
       <div className={classes["cartform__pay"]}>
         <span>Оплата:</span>
         <input type="radio" id="pay" name="pay" checked />
@@ -192,6 +152,7 @@ const CartForm = (props) => {
         type="text"
         id="cardnum"
         name="cardnum"
+        ref={cardnumInputRef}
       />
       <label className={classes["cartfrom__cardname-label"]} htmlFor="cardname">
         Имя держателя
@@ -201,6 +162,7 @@ const CartForm = (props) => {
         type="text"
         id="cardname"
         name="cardname"
+        ref={cardnameInputRef}
       />
 
       <label className={classes["cartfrom__expire-label"]} htmlFor="expire">
@@ -211,6 +173,7 @@ const CartForm = (props) => {
         type="text"
         id="expire"
         name="expire"
+        ref={expireInputRef}
       />
       <label className={classes["cartfrom__cvv-label"]} htmlFor="cvv">
         CVV
@@ -220,6 +183,7 @@ const CartForm = (props) => {
         type="text"
         id="cvv"
         name="cvv"
+        ref={cvvInputRef}
       />
       <button className={classes["cartform__btn"]}>Оплатить</button>
     </form>

@@ -11,24 +11,55 @@ const cartReducer = (state, action) => {
   if (action.type === "ADD") {
     const updatedTotalAmount =
       state.totalAmount + action.item.price * action.item.amount;
-
-    const existingCartItemIndex = state.items.findIndex(
-      (item) => item.id === action.item.id
-    );
-    const existingCartItem = state.items[existingCartItemIndex];
-    let updatedItems;
-
-    if (existingCartItem) {
-      const updatedItem = {
-        ...existingCartItem,
-        amount: existingCartItem.amount + action.item.amount,
-      };
-      updatedItems = [...state.items];
-      updatedItems[existingCartItemIndex] = updatedItem;
-    } else {
-      updatedItems = state.items.concat(action.item);
+      let updatedItems;
+      let itemWithsupps;
+      if(action.item.supplements.length > 0){
+       itemWithsupps = {
+        amount: action.item.amount,
+        id: action.item.id + 10,
+        img: action.item.img,
+        price: action.item.price,
+        roast: action.item.roast,
+        supplements: action.item.supplements,
+        title: action.item.title
+       }
+       const existingCartItemIndex = state.items.findIndex(
+        (item) => item.id === action.item.id
+        
+      );
+      const existingCartItem = state.items[existingCartItemIndex];
+      if (existingCartItem) {
+        const updatedItem = {
+          ...existingCartItem,
+          amount: existingCartItem.amount + action.item.amount,
+        };
+        updatedItems = [...state.items];
+        updatedItems[existingCartItemIndex] = updatedItem;
+      } else {
+        updatedItems = state.items.concat(itemWithsupps);
+      }
+      
+      }
+    
+    if (action.item.supplements.length === 0) {
+      const existingCartItemIndex = state.items.findIndex(
+        (item) => item.id === action.item.id
+        
+      );
+      const existingCartItem = state.items[existingCartItemIndex];
+      if (existingCartItem) {
+        const updatedItem = {
+          ...existingCartItem,
+          amount: existingCartItem.amount + action.item.amount,
+        };
+        updatedItems = [...state.items];
+        updatedItems[existingCartItemIndex] = updatedItem;
+      } else {
+        updatedItems = state.items.concat(action.item);
+      }
     }
-
+    
+  
     return {
       items: updatedItems,
       totalAmount: updatedTotalAmount,

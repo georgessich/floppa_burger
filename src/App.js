@@ -32,9 +32,7 @@ function App() {
         <Route path='/floppa_burger/cart'>
           <Cart />
         </Route>
-        <Route>
-          <About path='/floppa_burger/about'/>
-        </Route>
+        
         <Route path='/floppa_burger/drinks'>
           <Drinks mealsId='drinks'/>
         </Route>
@@ -43,6 +41,9 @@ function App() {
         </Route>
         <Route path='/floppa_burger/sauces'>
           <Sauces mealsId='sauces'/>
+        </Route>
+        <Route>
+          <About path='/floppa_burger/about' exact/>
         </Route>
       </Switch>
     </Layout>

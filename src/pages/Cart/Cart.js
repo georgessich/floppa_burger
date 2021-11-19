@@ -52,14 +52,15 @@ const Cart = () => {
       </div>
   )
   return <div className={classes.cart}>
-      <div className={classes['cart__header']}>
+     {cartCtx.items.length === 0 && !didSubmit && <CartEmpty />}
+      {cartCtx.items.length > 0 && !didSubmit && (<div><CartForm onConfirm={submitOrderHandler}/> <div className={classes['cart__header']}>
         <span className={classes['cart__header-title--form']}>Оформление заказа</span>
         <span className={classes['cart__header-title--compose']}>Состав заказа:</span>
-      </div>
-      {cartCtx.items.length === 0 && !didSubmit && <CartEmpty />}
-      {cartCtx.items.length > 0 && !didSubmit && <CartForm onConfirm={submitOrderHandler}/>}
-      {cartItems}
+      </div> <div>{cartItems}</div></div>)}
+      
       {didSubmit && <CartSubmit />}
+     
+     
   </div>;
 };
 

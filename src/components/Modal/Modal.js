@@ -174,6 +174,7 @@ const Modal = (props) => {
             onClose={props.onClose}
             id={props.id}
             descr={props.descr}
+            image={props.image}
           />
         ) : (
           <ModalOverlay

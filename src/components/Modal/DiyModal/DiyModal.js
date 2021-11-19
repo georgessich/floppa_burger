@@ -16,6 +16,7 @@ const DiyModal = (props) => {
   const [chooseBun, setChooseBun] = useState();
   const [chooseRoast, setChooseRoast] = useState();
   const [chooseSauce, setChooseSauce] = useState([]);
+  const [price, setPrice] = useState('159р');
 
   useEffect(() => {
     const fetchDiySettings = async () => {
@@ -37,6 +38,7 @@ const DiyModal = (props) => {
             id: key,
             title: data[key].title,
             img: data[key].img,
+            price: data[key].price
           });
         }
       };
@@ -58,22 +60,27 @@ const DiyModal = (props) => {
         loadedSauces,
         loadedToppings
       );
+      let sums = layers.map((layer) => (
+        parseInt(layer.price)
+      ))
+      let totalSum = sums.reduce((acc, num) => acc + num, 0);
+      setPrice(159 + totalSum);
     };
     fetchDiySettings().catch((error) => {
       setHttpError(error.message);
     });
-  }, []);
+  }, [layers]);
   const cartCtx = useContext(CartContext);
 
   let enteredAmount = 0;
-
+  
   const addToCartHandler = (amount) => {
     amount = ++enteredAmount;
     cartCtx.addItem({
       id: props.id,
       title: props.title,
       amount: amount,
-      price: props.price,
+      price: `${price.toString()}руб`,
       img: props.image,
       bun: chooseBun,
       patty: choosePatty, 
@@ -83,7 +90,7 @@ const DiyModal = (props) => {
     });
     console.log(cartCtx);
   };
-
+  
   const addLayer = (topping) => {
     if (layers.length < 9) {
       setLayers((prevState) => [...prevState, topping]);
@@ -91,10 +98,11 @@ const DiyModal = (props) => {
     if (layers.length > 9) {
       setLayers(layers);
     }
-    console.log(layers);
   };
   const deleteLayer = (index) => {
-    setLayers(prevState => prevState.filter((layer, i) => i !== index))
+    setLayers(prevState => prevState.filter((layer, i) => 
+      i !== index,
+    ))
   }
   return (
     <div className={classes.modal__diy}>
@@ -210,6 +218,7 @@ const DiyModal = (props) => {
         <button className={classes.cancel} onClick={props.onClose}>
           &#10006;
         </button>
+        <span>price{price}</span>
         <button
           className={classes.tocart}
           id={props.id}
