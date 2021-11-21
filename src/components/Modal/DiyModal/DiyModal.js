@@ -1,10 +1,14 @@
 import classes from "../Modal.module.css";
 import React, { useContext, useState, useEffect } from "react";
 import CartContext from "../../../pages/Cart/cart-context";
-import BunTop from "../../../images/toppings/bun top.png";
-import BunBottom from "../../../images/toppings/bun lower.png";
-import Patty from '../../../images/toppings/patty.png';
+import bunTop from '../../../images/toppings/Новая папка/bun top.png'
+import bunBot from '../../../images/toppings/Новая папка/bun lower.png'
 const DiyModal = (props) => {
+  const bunStart = {
+    title: 'Зерновая',
+    top: bunTop,
+    bottom: bunBot
+  }
   const [buns, setBuns] = useState([]);
   const [roasts, setRoast] = useState([]);
   const [sauces, setSauces] = useState([]);
@@ -13,7 +17,7 @@ const DiyModal = (props) => {
   const [layers, setLayers] = useState([]);
   const [httpError, setHttpError] = useState();
   const [choosePatty, setChoosePatty] = useState();
-  const [chooseBun, setChooseBun] = useState();
+  const [chooseBun, setChooseBun] = useState(bunStart);
   const [chooseRoast, setChooseRoast] = useState();
   const [chooseSauce, setChooseSauce] = useState([]);
   const [price, setPrice] = useState('159р');
@@ -38,7 +42,9 @@ const DiyModal = (props) => {
             id: key,
             title: data[key].title,
             img: data[key].img,
-            price: data[key].price
+            price: data[key].price,
+            bottom: data[key].bottom,
+            top: data[key].top
           });
         }
       };
@@ -53,8 +59,9 @@ const DiyModal = (props) => {
       setRoast(loadedRoasts);
       setSauces(loadedSauces);
       setToppings(loadedToppings);
+      
       console.log(
-        loadedBuns,
+        loadedBuns[0],
         loadedBrgrs,
         loadedRoasts,
         loadedSauces,
@@ -80,7 +87,7 @@ const DiyModal = (props) => {
       id: props.id,
       title: props.title,
       amount: amount,
-      price: `${price.toString()}руб`,
+      price: `${parseInt(price.toString())}руб`,
       img: props.image,
       bun: chooseBun,
       patty: choosePatty, 
@@ -121,7 +128,7 @@ const DiyModal = (props) => {
               <span className={classes["modal__menu-title"]}>Котлеты</span>
               <div>
                 {brgrs.map((brgr) => (
-                  <button onClick={() => setChoosePatty(brgr.title)} className={classes["modal__topping-btn"]}>
+                  <button onClick={() => addLayer(brgr)} className={classes["modal__topping-btn"]}>
                     {brgr.title}
                   </button>
                 ))}
@@ -145,15 +152,16 @@ const DiyModal = (props) => {
       </div>
       <div className={classes.modal__right}>
         <div className={classes["modal__diy-table"]}>
-          <img src={BunTop} className={classes["modal__diy-img--buntop"]} />
+          <img src={chooseBun.top} className={classes["modal__diy-img--buntop"]} />
           <div className={classes['modal__diy-img--toppings']}>
             {layers.map((layer) => (
               <img src={layer.img} />
             ))}
+           
           </div>
-          <img src={Patty} className={classes['modal__diy-img--patty']}/>
+          <img className={classes['modal__diy-img--patty']}/>
           <img
-            src={BunBottom}
+            src={chooseBun.bottom}
             className={classes["modal__diy-img--bunbottom"]}
           />
         </div>
@@ -169,7 +177,7 @@ const DiyModal = (props) => {
                     id={`radio-bn${i}`}
                     type="radio"
                     name="bun"
-                    onClick={() => setChooseBun(bun.title)}
+                    onClick={() => setChooseBun(bun)}
                   />
                   <label htmlFor={`radio-bn${i}`}>{bun.title}</label>
                 </div>
@@ -218,7 +226,7 @@ const DiyModal = (props) => {
         <button className={classes.cancel} onClick={props.onClose}>
           &#10006;
         </button>
-        <span>price{price}</span>
+       
         <button
           className={classes.tocart}
           id={props.id}
@@ -227,6 +235,7 @@ const DiyModal = (props) => {
         >
           В корзину!
         </button>
+        <span className={classes['modal__diy--price']}>{price}р</span>
       </div>
     </div>
   );

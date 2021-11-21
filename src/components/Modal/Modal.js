@@ -25,21 +25,23 @@ const ModalOverlay = (props) => {
       const loadedToppings = [];
       const loadedSauces = [];
       const responseSettings = (arr, data) => {
-        for(const key in data) {
+        for (const key in data) {
           arr.push({
             id: key,
-            title: data[key].title
-          })
+            title: data[key].title,
+            price: data[key].price,
+          });
         }
-      }
+      };
       responseSettings(loadedRoasts, responseData.roast);
       responseSettings(loadedToppings, responseData.toppings);
       responseSettings(loadedSauces, responseData.sauces);
-      
+
       console.log(loadedRoasts);
       setRoast(loadedRoasts);
       setToppings(loadedToppings);
       setSauces(loadedSauces);
+      console.log(loadedToppings);
     };
     fetchSettings().catch((error) => {
       setHttpError(error.message);
@@ -47,16 +49,18 @@ const ModalOverlay = (props) => {
   }, []);
 
   const cartCtx = useContext(CartContext);
-
+  let sums = supplements.map((layer) => (
+    parseInt(layer.price)
+  ))
+  let totalSum = sums.reduce((acc, num) => acc + num, 0);
   let enteredAmount = 0;
-
   const addToCartHandler = (amount) => {
     amount = ++enteredAmount;
     cartCtx.addItem({
       id: props.id,
       title: props.title,
       amount: amount,
-      price: props.price,
+      price: `${parseInt(props.price.slice(' ').toString()) + totalSum} руб`,
       img: props.image,
       supplements: supplements,
       roast: addRoast,
@@ -71,6 +75,12 @@ const ModalOverlay = (props) => {
     if (supplements.length > 5) {
       setSupplements(supplements);
     }
+    console.log(supplements)
+  };
+  const deleteTopping = (index) => {
+    setSupplements((prevState) =>
+      prevState.filter((topping, i) => i !== index)
+    );
   };
   return (
     <div className={classes.modal}>
@@ -103,9 +113,9 @@ const ModalOverlay = (props) => {
               Добавить ингредиенты {`${supplements.length}/5`}
             </span>
             <div>
-              {supplements.map((supplement) => (
-                <button className={classes["modal__topping-btn"]}>
-                  {supplement}
+              {supplements.map((supplement, i) => (
+                <button onClick={() => deleteTopping(i)} className={classes["modal__topping-btn"]}>
+                  {supplement.title} &#10006;
                 </button>
               ))}
             </div>
@@ -116,7 +126,7 @@ const ModalOverlay = (props) => {
               <div>
                 {toppings.map((topping) => (
                   <button
-                    onClick={() => addTopping(topping.title)}
+                    onClick={() => addTopping(topping)}
                     className={classes["modal__topping-btn"]}
                   >
                     {topping.title}
@@ -128,7 +138,7 @@ const ModalOverlay = (props) => {
               <span className={classes["modal__menu-titles"]}>Соусы:</span>
               <div>
                 {sauces.map((sauce) => (
-                  <button className={classes["modal__topping-btn"]}>
+                  <button onClick={() => addTopping(sauce)} className={classes["modal__topping-btn"]}>
                     {sauce.title}
                   </button>
                 ))}
@@ -151,7 +161,6 @@ const ModalOverlay = (props) => {
           className={classes.tocart}
           id={props.id}
           onClick={addToCartHandler}
-
         >
           В корзину!
         </button>

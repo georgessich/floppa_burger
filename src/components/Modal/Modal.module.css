@@ -27,7 +27,7 @@
 
 .modal__diy {
   position: fixed;
-  top: 10%;
+  top: 5%;
   left: 20%;
   z-index: 100;
   overflow: hidden;
@@ -36,7 +36,7 @@
   display: flex;
   gap: 36px;
   width: 60%;
-  height: 80%;
+  height: 90%;
   /* height: auto; */
   border-radius: 10px;
 }
@@ -144,7 +144,7 @@
 .modal__diy-img--toppings {
     position: absolute;
     display: flex;
-    top: 5%;
+    top: 10%;
     width: 50%;
     flex-direction: column;
     left: 25%;
@@ -202,6 +202,7 @@
   cursor: pointer;
 }
 
+
 .cancel {
   position: absolute;
   top: 0;
@@ -221,10 +222,19 @@
   opacity: 1;
 }
 
+.modal__diy--price {
+  position: absolute;
+  bottom: 5%;
+  right: 25%;
+  font-family: 'Jost';
+  font-weight: 400;
+  font-size: 24px;
+}
+
 .tocart {
   position: absolute;
   right: 5%;
-  bottom: 10%;
+  bottom: 5%;
   font-size: 16px;
   padding: 6px 24px;
   border: none;
