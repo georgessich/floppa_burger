@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/floppa_burger/static/css/main.c5d49826.chunk.css",
+    "main.css": "/floppa_burger/static/css/main.6b2566b7.chunk.css",
     "main.js": "/floppa_burger/static/js/main.c8e17624.chunk.js",
     "main.js.map": "/floppa_burger/static/js/main.c8e17624.chunk.js.map",
     "runtime-main.js": "/floppa_burger/static/js/runtime-main.3317c526.js",
@@ -8,7 +8,7 @@
     "static/js/2.20cf0f29.chunk.js": "/floppa_burger/static/js/2.20cf0f29.chunk.js",
     "static/js/2.20cf0f29.chunk.js.map": "/floppa_burger/static/js/2.20cf0f29.chunk.js.map",
     "index.html": "/floppa_burger/index.html",
-    "static/css/main.c5d49826.chunk.css.map": "/floppa_burger/static/css/main.c5d49826.chunk.css.map",
+    "static/css/main.6b2566b7.chunk.css.map": "/floppa_burger/static/css/main.6b2566b7.chunk.css.map",
     "static/js/2.20cf0f29.chunk.js.LICENSE.txt": "/floppa_burger/static/js/2.20cf0f29.chunk.js.LICENSE.txt",
     "static/media/bun lower.4016b08e.png": "/floppa_burger/static/media/bun lower.4016b08e.png",
     "static/media/bun top.2cca1106.png": "/floppa_burger/static/media/bun top.2cca1106.png",
@@ -20,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.3317c526.js",
     "static/js/2.20cf0f29.chunk.js",
-    "static/css/main.c5d49826.chunk.css",
+    "static/css/main.6b2566b7.chunk.css",
     "static/js/main.c8e17624.chunk.js"
   ]
 }
