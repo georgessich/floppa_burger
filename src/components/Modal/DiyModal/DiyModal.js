@@ -113,8 +113,8 @@ const DiyModal = (props) => {
   }
   return (
     <div className={classes.modal__diy}>
-      <div className={classes.modal__left}>
-        <span className={classes.modal__title}>{props.title}</span>
+
+        <span className={classes['modal__diy-title']}>{props.title}</span>
         <div className={classes.modal__layers}>
           {layers.map((layer, i) => (
             <div className={classes.modal__layer}>
@@ -149,8 +149,7 @@ const DiyModal = (props) => {
             </div>
           </div>
         </div>
-      </div>
-      <div className={classes.modal__right}>
+      
         <div className={classes["modal__diy-table"]}>
           <img src={chooseBun.top} className={classes["modal__diy-img--buntop"]} />
           <div className={classes['modal__diy-img--toppings']}>
@@ -166,7 +165,7 @@ const DiyModal = (props) => {
           />
         </div>
 
-        <form>
+        <form className={classes['modal__diy-form']}> 
           <div>
             <span className={classes["modal__menu-titles"]}>Булочка</span>
             <div style={{ display: "flex", marginBottom: "27px" }}>
@@ -205,7 +204,7 @@ const DiyModal = (props) => {
           </div>
           <div>
             <span className={classes["modal__menu-titles"]}>Соусы</span>
-            <div style={{ display: "flex", marginBottom: "27px" }}>
+            <div style={{ display: "flex", marginBottom: "27px", flexWrap:'wrap'}}>
               {sauces.map((sauce, i) => (
                 <div>
                   <input
@@ -221,8 +220,7 @@ const DiyModal = (props) => {
             </div>
           </div>
         </form>
-      </div>
-      <div className={classes.controls}>
+      <div className={classes.diy__controls}>
         <button className={classes.cancel} onClick={props.onClose}>
           &#10006;
         </button>

@@ -5,3 +5,9 @@
     line-height: 78px;
     padding-left: 40px;
 }
+
+@media(max-width: 600px) {
+    .title {
+        font-size: 40px;
+    }
+}

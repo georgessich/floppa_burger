@@ -153,7 +153,7 @@ const ModalOverlay = (props) => {
         alt={props.title}
       />
 
-      <div className={classes.controls}>
+ 
         <button className={classes.cancel} onClick={props.onClose}>
           &#10006;
         </button>
@@ -164,7 +164,7 @@ const ModalOverlay = (props) => {
         >
           В корзину!
         </button>
-      </div>
+
     </div>
   );
 };

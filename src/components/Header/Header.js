@@ -1,27 +1,18 @@
-import classes from './Header.module.css';
+import classes from "./Header.module.css";
+import {Link} from 'react-router-dom';
 import logo from '../../images/logo.png';
-import { Link } from 'react-router-dom';
+import DeskNav from "../Nav/DeskNav";
+import MobileNav from "../Nav/MobileNav";
 function Header() {
   return (
     <div className={classes.header}>
-      <nav>
-        <ul className={classes.header__menu_list}>
-
-          <li>
           <Link className={classes.header__menu_link} to='/floppa_burger'><img src={logo} className={classes.header__logo} alt='logo'/></Link>
-          
-          </li>
-          <li>
-            <Link className={classes.header__menu_link} to='/floppa_burger/delivery'>Доставка и оплата</Link>
-          </li>
-          <li>
-            <Link className={classes.header__menu_link} to='/floppa_burger/address'>Заведения</Link>
-          </li>
-          <li>
-            <Link className={classes.header__menu_link} to='/floppa_burger/about'>О компании</Link>
-          </li>
-        </ul>
-      </nav>
+      <div className={classes.header__nav}>
+        <DeskNav />
+      </div>
+      <div className={classes.header__nav}>
+        <MobileNav />
+      </div>
     </div>
   );
 }

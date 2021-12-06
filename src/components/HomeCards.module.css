@@ -6,3 +6,55 @@
     gap: 110px;
     margin-bottom: 155px;
 }
+
+@media(max-width: 1420px) {
+    .homecards {
+        grid-column-gap: 70px;
+        grid-row-gap: 70px;
+    }
+}
+
+@media(max-width: 1290px) {
+    .homecards {
+        grid-column-gap: 35px;
+        grid-row-gap: 80px;
+    }
+}
+
+@media(max-width: 1190px) {
+    .homecards {
+        grid-column-gap: 110px;
+        grid-template-columns: repeat(3, max-content);
+    }
+}
+@media(max-width: 1060px) {
+    .homecards {
+        grid-column-gap: 70px;
+
+    }
+}
+@media(max-width: 970px) {
+    .homecards {
+        grid-column-gap: 35px;
+
+    }
+}
+@media(max-width: 910px) {
+    .homecards {
+        grid-column-gap: 130px;
+        grid-template-columns: repeat(2, max-content);
+    }
+}
+@media(max-width: 700px) {
+    .homecards {
+        grid-column-gap: 60px;
+
+    }
+}
+@media(max-width: 600px) {
+    .homecards {
+        grid-template-columns: repeat(1, max-content);
+    }
+}
+
+

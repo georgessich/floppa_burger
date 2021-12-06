@@ -29,7 +29,7 @@ const AddressMap = () => {
     return (
         <YMaps>
             <div>
-                <Map style={{width: '856px', height: "580px", paddingTop: '36px', borderRadius:"12px"}} defaultState={{ center: [47.24, 39.72], zoom: 12 }}>
+                <Map>
                     {placeMarks.map((placeMark) => (
                         <Placemark {...placeMark}/>
                     ))}

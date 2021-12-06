@@ -13,7 +13,7 @@ function Delivery() {
         Вы можете оплатить заказ банковской картой онлайн или при получении.
       </p>
       </div>
-      <img src={Map} />
+      <img src={Map} className={classes.delivery__map}/>
     </section>
   );
 }

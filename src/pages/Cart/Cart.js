@@ -46,17 +46,17 @@ const Cart = () => {
               onAdd={cartItemAddHandler.bind(null, item)}
               />
           ))}
-          <div className={classes['cart__totalsum']}><span>К оплате</span> {totalSum}руб</div>
+          <div className={classes['cart__totalsum']}><span className={classes['cart__totalsum-title']}>К оплате</span> {totalSum}руб</div>
       </ul>
      
       </div>
   )
   return <div className={classes.cart}>
      {cartCtx.items.length === 0 && !didSubmit && <CartEmpty />}
-      {cartCtx.items.length > 0 && !didSubmit && (<div><CartForm onConfirm={submitOrderHandler}/> <div className={classes['cart__header']}>
+      {cartCtx.items.length > 0 && !didSubmit && (<div className={classes['cart__container']}><CartForm onConfirm={submitOrderHandler}/> <div className={classes['cart__header']}>
         <span className={classes['cart__header-title--form']}>Оформление заказа</span>
         <span className={classes['cart__header-title--compose']}>Состав заказа:</span>
-      </div> <div>{cartItems}</div></div>)}
+      </div> <div className={classes['cart__items-cont']}>{cartItems}</div></div>)}
       
       {didSubmit && <CartSubmit />}
      

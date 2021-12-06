@@ -4,7 +4,7 @@
     gap:15px;
     margin-bottom: 25px;
     padding: 20px;
-    width: 400px;
+    width: 100%;
 }
 
 .cartitem__img {
@@ -42,4 +42,10 @@
     color: rgb(150, 66, 10);
     background-color: transparent;
 
+}
+
+@media(max-width:770px) {
+    .cartitem {
+        padding: 0;
+    }
 }

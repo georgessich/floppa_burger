@@ -28,17 +28,18 @@ const HeaderMenuOverlay = (props) => {
           Стоимость
         </span>
       </div>
-      <div style={{marginBottom: "120px"}}>
+      <div className={classes['header__modal-grid--container']} style={{marginBottom: "140px"}}>
         {cartCtx.items.map((item) => (
           <div className={classes["header__modal-grid--items"]}>
             <img
               src={item.img}
               className={classes["header__modal-grid--img"]}
             />
-            <span className={classes["header__modal-grid--supplements"]}>
-              <span className={classes["header__modal-grid--title"]}>
+            <span className={classes["header__modal-grid--title"]}>
                 {item.title}
               </span>
+            <span className={classes["header__modal-grid--supplements"]}>
+              
               <span className={classes["header__modal-grid--roast"]}>
                 {item.roast}
               </span>
@@ -81,7 +82,7 @@ const HeaderMenuOverlay = (props) => {
         ))}
         <div className={classes["header__modal-controls"]}>
       {(totalSum > 0) && <div className={classes["header__modal-totalsum"]}>
-        <span style={{marginRight: '40px'}} className={classes["header__modal-titles--price"]}>Итого:</span>
+        <span style={{marginRight: '40px'}} className={classes["header__modal-titles--price", "header__modal-titles--price-mob"]} >Итого:</span>
         {totalSum}руб
       </div>}
         <button
@@ -90,6 +91,7 @@ const HeaderMenuOverlay = (props) => {
         >
           Продолжить покупки
         </button>
+        <button className={classes["header__modal-controls--tocart"]}>
         <Link
           className={classes["header__modal-controls--tocart"]}
           onClick={props.onClick}
@@ -97,6 +99,7 @@ const HeaderMenuOverlay = (props) => {
         >
           Оформить заказ
         </Link>
+        </button>
       </div>
       </div>
     

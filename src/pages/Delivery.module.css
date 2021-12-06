@@ -4,7 +4,6 @@
     justify-content: center;
     align-items: flex-start;
     gap:80px;
-    height: 60vh;
     position: relative;
     padding-bottom: 120px;
  
@@ -31,4 +30,34 @@
 
 .delivery__text span {
     font-weight: 700;
+}
+
+@media(max-width: 1300px) {
+    .delivery__map {
+        width: 60%;
+    }
+}
+
+@media(max-width: 975px) {
+    .delivery__text {
+        width: 180px;
+    }
+}
+
+@media(max-width: 750px) {
+    .delivery {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .delivery::after {
+        display: none;
+    }
+    .delivery__text {
+        width: 60%;
+        margin: 20px auto;
+    }
+    .delivery__map {
+        width: 95%;
+    }
 }
