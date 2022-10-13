@@ -1,4 +1,4 @@
-import {useState, useContext} from 'react';
+import {useState, useContext, useEffect} from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import CartContext from '../../pages/Cart/cart-context';
 import classes from './HeaderMenu.module.css';
@@ -10,7 +10,7 @@ function HeaderMenu() {
   function modalShowHandler() {
     if(modalShow === false) {
       setModalShow(true);
-      window.scrollTo({top: 0, behavior: 'smooth'});
+      
     } else {
       setModalShow(false)
     }
@@ -21,13 +21,17 @@ function HeaderMenu() {
   }
   const {pathname} = useLocation()
   const cartCtx = useContext(CartContext);
-
+  console.log(cartCtx)
+  useEffect(() => {
+    const body = document.querySelector('body');
+    body.style.overflow = modalShow ? 'hidden' : 'auto';
+  }, [modalShow])
   const numberOfCartItems = cartCtx.items.reduce((curNumber, item) => {
     return curNumber + item.amount;
   }, 0);
   return (
     pathname !== '/floppa_burger/cart' &&
-    <div style={{alignSelf: 'center', width:'100%'}}>
+    <div className={classes['header__menu']}>
       <nav className={classes['header__menu-nav']}>
         <ul className={classes.list}>
           <li>

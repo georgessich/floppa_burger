@@ -15,7 +15,7 @@ const HeaderMenuOverlay = (props) => {
     (item) => parseInt(item.price.slice(" ").toString()) * item.amount
   );
   let totalSum = sums.reduce((acc, num) => acc + num, 0);
-
+  
   return (
     <div className={classes["header__menu-overlay"]}>
       <div className={classes["header__modal-grid"]}>
@@ -50,7 +50,7 @@ const HeaderMenuOverlay = (props) => {
                   flexWrap: "wrap",
                 }}
               >
-                {item.supplements.map((supplement) => (
+                {item.supplements?.map((supplement) => (
                   <span className={classes["header__modal-grid--topping"]}>
                     {typeof supplement === "string"
                       ? supplement

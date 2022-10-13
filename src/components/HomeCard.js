@@ -1,5 +1,5 @@
 import classes from "./HomeCard.module.css";
-import { useState, useContext, useRef } from "react";
+import { useState, useContext, useRef, useEffect } from "react";
 import Modal from "../components/Modal/Modal";
 import CartContext from "../pages/Cart/cart-context";
 function HomeCard(props) {
@@ -12,14 +12,16 @@ function HomeCard(props) {
       behavior: "smooth"
   });
   }
+  useEffect(() => {
+    const body = document.querySelector('body');
+    body.style.overflow = modalShow ? 'hidden' : 'auto';
+  }, [modalShow])
+
 
   
   function modalCloseHandler() {
     setModalShow(false);
-    window.scrollTo({
-      behavior: "smooth",
-      top: myRef.current.offsetTop,
-    });
+    
   }
   const cartCtx = useContext(CartContext);
 

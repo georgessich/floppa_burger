@@ -12,24 +12,50 @@ const cartReducer = (state, action) => {
     const updatedTotalAmount =
       state.totalAmount + action.item.price * action.item.amount;
     let updatedItems;
-    
-    
-    if (action.item.supplements.length > 0) {
+    let itemWithoutSupps;
+    itemWithoutSupps = {
+      amount: action.item.amount,
+      id: action.item.id,
+      img: action.item.img,
+      supplements: [],
+      price: action.item.price,
+      roast: action.item.roast,
+      title: action.item.title,
+    };
+    const existingCartItemIndex = state.items.findIndex(
+      (item) => item.id === action.item.id
+    );
+
+    const existingCartItem = state.items[existingCartItemIndex];
+    if (action.item.supplements.length <= 0) {
+      if (existingCartItem) {
+        const updatedItem = {
+          ...existingCartItem,
+          amount: existingCartItem.amount + action.item.amount,
+        };
+        updatedItems = [...state.items];
+        updatedItems[existingCartItemIndex] = updatedItem;
+      } else {
+        updatedItems = state.items.concat(itemWithoutSupps);
+      }
+    } else if (action.item.supplements.length > 0) {
+      let titles = action.item.supplements?.map((item) => item.title);
+      let allTitles = titles.reduce((prevVal, curVal) => prevVal + curVal);
+      console.log(allTitles);
       let itemWithsupps;
-      let ranNum = action.item.id + (Math.floor(Math.random() * 100) + 1) ;
+
+      let ranNum = `${action.item.id} + ${allTitles}`;
       itemWithsupps = {
         amount: action.item.amount,
-        id: ranNum,
+        id: action.item.id,
         img: action.item.img,
         price: action.item.price,
         roast: action.item.roast,
         supplements: action.item.supplements,
         title: action.item.title,
       };
-      const existingCartItemIndex = state.items.findIndex(
-        (item) => item.id === action.item.id
-      );
-      const existingCartItem = state.items[existingCartItemIndex];
+      updatedItems = state.items.concat(itemWithsupps);
+    } else if (action.item.supplements.length > 0) {
       if (existingCartItem) {
         const updatedItem = {
           ...existingCartItem,
@@ -37,29 +63,10 @@ const cartReducer = (state, action) => {
         };
         updatedItems = [...state.items];
         updatedItems[existingCartItemIndex] = updatedItem;
-      } else {
-        updatedItems = state.items.concat(itemWithsupps);
-      }
+      } else {updatedItems = state.items.concat(action.item)}
     }
-
-    if (action.item.supplements.length === 0) {
-      const existingCartItemIndex = state.items.findIndex(
-        (item) => item.id === action.item.id
-      );
-      const existingCartItem = state.items[existingCartItemIndex];
-      if (existingCartItem) {
-        const updatedItem = {
-          ...existingCartItem,
-          amount: existingCartItem.amount + action.item.amount,
-        };
-        updatedItems = [...state.items];
-        updatedItems[existingCartItemIndex] = updatedItem;
-      } else {
-        updatedItems = state.items.concat(action.item);
-      }
-    }
-    console.log(action.item.supplements.length)
-
+    console.log(action.item.id);
+    console.log(action.item.supplements.length);
     return {
       items: updatedItems,
       totalAmount: updatedTotalAmount,

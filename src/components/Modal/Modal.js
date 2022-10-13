@@ -12,6 +12,7 @@ const ModalOverlay = (props) => {
   const [sauces, setSauces] = useState([]);
   const [supplements, setSupplements] = useState([]);
   const [httpError, setHttpError] = useState();
+  const cartCtx = useContext(CartContext);
   useEffect(() => {
     const fetchSettings = async () => {
       const response = await fetch(
@@ -48,7 +49,7 @@ const ModalOverlay = (props) => {
     });
   }, []);
 
-  const cartCtx = useContext(CartContext);
+  
   let sums = supplements.map((layer) => (
     parseInt(layer.price)
   ))

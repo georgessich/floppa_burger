@@ -1,6 +1,6 @@
 .homecard {
     width: 256px;
-    height: 327px;
+    height: 365px;
     background-color: #fff;
     display: grid;
     grid-template-areas:
@@ -76,4 +76,10 @@
     grid-area: descr;
     grid-row: 4 / 5;
     margin-top: 15px;
+}
+
+@media(max-width: 600px) {
+    .homecard {
+        height: auto;
+    }
 }

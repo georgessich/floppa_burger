@@ -2,7 +2,7 @@
 import AddressCards from './AddressCards';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import { useEffect, useState } from 'react';
-import AddressMap from './AddressMap/AddressMap';
+import AddressMap2 from './AddressMap/AddressMap2';
 function Address(props) {
     const [ address, setAddress ] = useState ([]);
     const [ isLoading, setIsLoading] = useState(true);
@@ -51,7 +51,7 @@ function Address(props) {
     }
     return <div style={{display: 'flex', justifyContent:'space-between'}}>
         <AddressCards  restaraunts={address}/>
-        <AddressMap />
+        <AddressMap2 />
     </div>
 }
 

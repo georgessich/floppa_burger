@@ -1,6 +1,5 @@
 import {YMaps, Map, Placemark} from 'react-yandex-maps';
-
-const AddressMap = () => {
+const AddressMap2 = () => {
     const placeMarks = [{
         geometry: [47.222998, 39.717973],
         properties: {
@@ -29,15 +28,16 @@ const AddressMap = () => {
     return (
         <YMaps>
             <div>
-                <Map>
-                    {placeMarks.map((placeMark) => (
+                <Map defaultState={{ center: [47.23, 39.72], zoom: 12 }}  width="600px" height="500px">
+                {placeMarks.map((placeMark) => (
                         <Placemark {...placeMark}/>
                     ))}
-                    
                 </Map>
+                
+            
             </div>
         </YMaps>
     )
 }
 
-export default AddressMap;
+export default AddressMap2;
