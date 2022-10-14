@@ -1,4 +1,5 @@
 import {YMaps, Map, Placemark} from 'react-yandex-maps';
+import classes from './AddressMap2.module.scss'
 const AddressMap2 = () => {
     const placeMarks = [{
         geometry: [47.222998, 39.717973],
@@ -28,7 +29,7 @@ const AddressMap2 = () => {
     return (
         <YMaps>
             <div>
-                <Map defaultState={{ center: [47.23, 39.72], zoom: 12 }}  width="600px" height="500px">
+                <Map defaultState={{ center: [47.23, 39.72], zoom: 12 }}  className={classes['map']}>
                 {placeMarks.map((placeMark) => (
                         <Placemark {...placeMark}/>
                     ))}

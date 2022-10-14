@@ -84,7 +84,7 @@ const DiyModal = (props) => {
   const addToCartHandler = (amount) => {
     amount = ++enteredAmount;
     cartCtx.addItem({
-      id: props.id,
+      id: props.id + Math.ceil(Math.random()*100),
       title: props.title,
       amount: amount,
       price: `${parseInt(price.toString())}руб`,

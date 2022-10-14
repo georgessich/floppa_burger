@@ -1,0 +1,7 @@
+.address {
+  display: flex;
+  justify-content: center;
+  @media(max-width: 650px){
+    flex-direction: column-reverse;
+  }
+}

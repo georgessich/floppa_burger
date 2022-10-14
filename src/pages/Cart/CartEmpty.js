@@ -1,6 +1,6 @@
 import React from 'react';
 
-import classes from './CartEmpty.module.css';
+import classes from './CartEmpty.module.scss';
 
 const CartEmpty = () => {
     return (

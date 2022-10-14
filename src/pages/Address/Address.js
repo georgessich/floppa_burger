@@ -3,6 +3,7 @@ import AddressCards from './AddressCards';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import { useEffect, useState } from 'react';
 import AddressMap2 from './AddressMap/AddressMap2';
+import classes from './Address.module.scss'
 function Address(props) {
     const [ address, setAddress ] = useState ([]);
     const [ isLoading, setIsLoading] = useState(true);
@@ -49,7 +50,7 @@ function Address(props) {
             <p>{httpError}</p>
         </section>
     }
-    return <div style={{display: 'flex', justifyContent:'space-between'}}>
+    return <div className={classes['address']}>
         <AddressCards  restaraunts={address}/>
         <AddressMap2 />
     </div>

@@ -22,10 +22,7 @@ function HeaderMenu() {
   const {pathname} = useLocation()
   const cartCtx = useContext(CartContext);
   console.log(cartCtx)
-  useEffect(() => {
-    const body = document.querySelector('body');
-    body.style.overflow = modalShow ? 'hidden' : 'auto';
-  }, [modalShow])
+
   const numberOfCartItems = cartCtx.items.reduce((curNumber, item) => {
     return curNumber + item.amount;
   }, 0);

@@ -67,7 +67,9 @@ const ModalOverlay = (props) => {
       roast: addRoast,
     });
     console.log(cartCtx);
+    console.log(amount)
     console.log(addRoast);
+    props.onClose();
   };
   const addTopping = (topping) => {
     if (supplements.length < 5) {

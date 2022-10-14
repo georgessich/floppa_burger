@@ -13,6 +13,7 @@ const cartReducer = (state, action) => {
       state.totalAmount + action.item.price * action.item.amount;
     let updatedItems;
     let itemWithoutSupps;
+    let itemWithsupps;
     itemWithoutSupps = {
       amount: action.item.amount,
       id: action.item.id,
@@ -22,51 +23,59 @@ const cartReducer = (state, action) => {
       roast: action.item.roast,
       title: action.item.title,
     };
-    const existingCartItemIndex = state.items.findIndex(
-      (item) => item.id === action.item.id
+    itemWithsupps = {
+      amount: action.item.amount,
+      id: `${action.item.id} + ${action.item.supplements
+        .map((item) => item.title)
+        .toString()}`,
+      img: action.item.img,
+      price: action.item.price,
+      roast: action.item.roast,
+      supplements: action.item.supplements,
+      title: action.item.title,
+    };
+    const existingCartItemIndexWithoutSupps = state.items.findIndex(
+      (item) =>
+        action.item.supplements.length === 0 && item.id === action.item.id
+       
     );
-
-    const existingCartItem = state.items[existingCartItemIndex];
+    const existingCartItemIndexWithSupps = state.items.findIndex(
+      (item) =>
+        action.item.supplements.length > 0 && item.id === action.item.id
+        
+    );
+    const existingCartItemWithoutSupps = state.items[existingCartItemIndexWithoutSupps];
+    const existingCartItemWithSupps = state.items[existingCartItemIndexWithSupps];
+    console.log(existingCartItemIndexWithSupps)
+    console.log(existingCartItemIndexWithoutSupps)
+     console.log(action.item.supplements.length <= 0)
     if (action.item.supplements.length <= 0) {
-      if (existingCartItem) {
+      if (existingCartItemWithoutSupps) {
         const updatedItem = {
-          ...existingCartItem,
-          amount: existingCartItem.amount + action.item.amount,
+          ...existingCartItemWithoutSupps,
+          amount: existingCartItemWithoutSupps.amount + action.item.amount,
         };
         updatedItems = [...state.items];
-        updatedItems[existingCartItemIndex] = updatedItem;
-      } else {
-        updatedItems = state.items.concat(itemWithoutSupps);
+        updatedItems[existingCartItemIndexWithoutSupps] = updatedItem;
+      } else if (!existingCartItemWithoutSupps && action.item.supplements.length <= 0){
+        updatedItems = state.items.concat(action.item);
       }
     } else if (action.item.supplements.length > 0) {
-      let titles = action.item.supplements?.map((item) => item.title);
-      let allTitles = titles.reduce((prevVal, curVal) => prevVal + curVal);
-      console.log(allTitles);
-      let itemWithsupps;
-
-      let ranNum = `${action.item.id} + ${allTitles}`;
-      itemWithsupps = {
-        amount: action.item.amount,
-        id: action.item.id,
-        img: action.item.img,
-        price: action.item.price,
-        roast: action.item.roast,
-        supplements: action.item.supplements,
-        title: action.item.title,
-      };
-      updatedItems = state.items.concat(itemWithsupps);
-    } else if (action.item.supplements.length > 0) {
-      if (existingCartItem) {
+      if (existingCartItemWithSupps) {
         const updatedItem = {
-          ...existingCartItem,
-          amount: existingCartItem.amount + action.item.amount,
+          ...existingCartItemWithSupps,
+          amount: existingCartItemWithSupps.amount + action.item.amount,
         };
         updatedItems = [...state.items];
-        updatedItems[existingCartItemIndex] = updatedItem;
-      } else {updatedItems = state.items.concat(action.item)}
+        updatedItems[existingCartItemIndexWithSupps] = updatedItem;
+       
+      } else {
+        updatedItems = state.items.concat(itemWithsupps);
+        console.log(updatedItems);
+      }
     }
     console.log(action.item.id);
-    console.log(action.item.supplements.length);
+    console.log(action.item.supplements.map((item) => item.title).toString());
     return {
       items: updatedItems,
       totalAmount: updatedTotalAmount,
