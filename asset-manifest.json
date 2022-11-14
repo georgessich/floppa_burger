@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/floppa_burger/static/css/main.5bffa286.chunk.css",
-    "main.js": "/floppa_burger/static/js/main.4bbe8e8a.chunk.js",
-    "main.js.map": "/floppa_burger/static/js/main.4bbe8e8a.chunk.js.map",
+    "main.js": "/floppa_burger/static/js/main.bc988484.chunk.js",
+    "main.js.map": "/floppa_burger/static/js/main.bc988484.chunk.js.map",
     "runtime-main.js": "/floppa_burger/static/js/runtime-main.3317c526.js",
     "runtime-main.js.map": "/floppa_burger/static/js/runtime-main.3317c526.js.map",
-    "static/js/2.d314af46.chunk.js": "/floppa_burger/static/js/2.d314af46.chunk.js",
-    "static/js/2.d314af46.chunk.js.map": "/floppa_burger/static/js/2.d314af46.chunk.js.map",
+    "static/js/2.4f8e9de8.chunk.js": "/floppa_burger/static/js/2.4f8e9de8.chunk.js",
+    "static/js/2.4f8e9de8.chunk.js.map": "/floppa_burger/static/js/2.4f8e9de8.chunk.js.map",
     "index.html": "/floppa_burger/index.html",
     "static/css/main.5bffa286.chunk.css.map": "/floppa_burger/static/css/main.5bffa286.chunk.css.map",
-    "static/js/2.d314af46.chunk.js.LICENSE.txt": "/floppa_burger/static/js/2.d314af46.chunk.js.LICENSE.txt",
+    "static/js/2.4f8e9de8.chunk.js.LICENSE.txt": "/floppa_burger/static/js/2.4f8e9de8.chunk.js.LICENSE.txt",
     "static/media/bun lower.4016b08e.png": "/floppa_burger/static/media/bun lower.4016b08e.png",
     "static/media/bun top.2cca1106.png": "/floppa_burger/static/media/bun top.2cca1106.png",
     "static/media/caracal.c0c03e58.png": "/floppa_burger/static/media/caracal.c0c03e58.png",
@@ -20,8 +20,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.3317c526.js",
-    "static/js/2.d314af46.chunk.js",
+    "static/js/2.4f8e9de8.chunk.js",
     "static/css/main.5bffa286.chunk.css",
-    "static/js/main.4bbe8e8a.chunk.js"
+    "static/js/main.bc988484.chunk.js"
   ]
 }
