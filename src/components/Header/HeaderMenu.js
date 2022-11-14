@@ -27,28 +27,28 @@ function HeaderMenu() {
     return curNumber + item.amount;
   }, 0);
   return (
-    pathname !== '/floppa_burger/cart' &&
+    pathname !== '/cart' &&
     <div className={classes['header__menu']}>
       <nav className={classes['header__menu-nav']}>
         <ul className={classes.list}>
           <li>
-            <NavLink className={classes.link} activeClassName={classes.linkActive} to="/floppa_burger/" exact
+            <NavLink className={classes.link} activeClassName={classes.linkActive} to="/" exact
             >
               Бургеры
             </NavLink>
           </li>
           <li>
-            <NavLink className={classes.link} activeClassName={classes.linkActive} to="/floppa_burger/fries">
+            <NavLink className={classes.link} activeClassName={classes.linkActive} to="/fries">
               Картофель
             </NavLink>
           </li>
           <li>
-            <NavLink className={classes.link} activeClassName={classes.linkActive} to="/floppa_burger/sauces">
+            <NavLink className={classes.link} activeClassName={classes.linkActive} to="/sauces">
               Соусы
             </NavLink>
           </li>
           <li>
-            <NavLink className={classes.link} activeClassName={classes.linkActive} to="/floppa_burger/drinks">
+            <NavLink className={classes.link} activeClassName={classes.linkActive} to="/drinks">
               Напитки
             </NavLink>
           </li>

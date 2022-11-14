@@ -8,13 +8,13 @@ const Nav = (props) => {
 
          
           <li className={classes['header__menu-item']} onClick={() => props.isMobile && props.closeMobileNav()}>
-            <Link className={classes.header__menu_link} to='/floppa_burger/delivery'>Доставка и оплата</Link>
+            <Link className={classes.header__menu_link} to='/delivery'>Доставка и оплата</Link>
           </li>
           <li className={classes['header__menu-item']} onClick={() => props.isMobile && props.closeMobileNav()}>
-            <Link className={classes.header__menu_link} to='/floppa_burger/address'>Заведения</Link>
+            <Link className={classes.header__menu_link} to='/address'>Заведения</Link>
           </li>
           <li className={classes['header__menu-item']} onClick={() => props.isMobile && props.closeMobileNav()}>
-            <Link className={classes.header__menu_link} to='/floppa_burger/about'>О компании</Link>
+            <Link className={classes.header__menu_link} to='/about'>О компании</Link>
           </li>
         </ul>
     )

@@ -6,7 +6,7 @@ import MobileNav from "../Nav/MobileNav";
 function Header() {
   return (
     <div className={classes.header}>
-          <Link className={classes.header__menu_link} to='/floppa_burger'><img src={logo} className={classes.header__logo} alt='logo'/></Link>
+          <Link className={classes.header__menu_link} to='/'><img src={logo} className={classes.header__logo} alt='logo'/></Link>
       <div className={classes.header__nav}>
         <DeskNav />
       </div>

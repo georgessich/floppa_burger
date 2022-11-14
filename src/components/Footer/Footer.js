@@ -7,18 +7,18 @@ import classes from './Footer.module.css'
 const Footer = () => {
   return (
     <footer className={classes.footer}>
-      <Link to="/floppa_burger/" className={classes['footer__logo']}><img src={floppaLogo} alt={'footer logo'}/></Link>
+      <Link to="/" className={classes['footer__logo']}><img src={floppaLogo} alt={'footer logo'}/></Link>
 
       <nav className={classes['footer__menu']}>
         <ul className={classes['footer__item-list']}>
           <li>
-            <Link className={classes['footer__item-link']} to="/floppa_burger/delivery">Доставка и оплата</Link>
+            <Link className={classes['footer__item-link']} to="/delivery">Доставка и оплата</Link>
           </li>
           <li>
-            <Link className={classes['footer__item-link']} to="/floppa_burger/address">Заведения</Link>
+            <Link className={classes['footer__item-link']} to="/address">Заведения</Link>
           </li>
           <li>
-            <Link className={classes['footer__item-link']} to="/floppa_burger/about">О компании</Link>
+            <Link className={classes['footer__item-link']} to="/about">О компании</Link>
           </li>
         </ul>
         </nav>
