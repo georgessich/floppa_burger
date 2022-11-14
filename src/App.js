@@ -15,30 +15,30 @@ function App() {
     <CartProvider>
       <Layout>
         <Routes>
-          <Route path='/floppa_burger' element={<><Home mealsId='burgers'/><Fries mealsId='fries'/> <Sauces mealsId='sauces'/><Drinks mealsId='drinks'/></>} exact/>
+          <Route path='/' element={<><Home mealsId='burgers'/><Fries mealsId='fries'/> <Sauces mealsId='sauces'/><Drinks mealsId='drinks'/></>} exact/>
 
-          <Route path="/floppa_burger/delivery" element={<Delivery />} />
+          <Route path="/delivery" element={<Delivery />} />
 
-          <Route path="/floppa_burger/address" element={<Address />} />
+          <Route path="/address" element={<Address />} />
 
-          <Route path="/floppa_burger/cart" element={<Cart />} />
+          <Route path="/cart" element={<Cart />} />
 
           <Route
-            path="/floppa_burger/drinks"
+            path="/drinks"
             element={<Drinks mealsId="drinks" />}
           />
 
           <Route
-            path="/floppa_burger/fries"
+            path="/fries"
             element={<Fries mealsId="fries" />}
           />
 
           <Route
-            path="/floppa_burger/sauces"
+            path="/sauces"
             element={<Sauces mealsId="sauces" />}
           />
 
-          <Route element={<About path="/floppa_burger/about" exact />} />
+          <Route element={<About path="/about" exact />} />
         </Routes>
       </Layout>
     </CartProvider>
